@@ -1,0 +1,18 @@
+# DPO preference-pair construction. Prompts sourced ONLY from training split -- never
+# from dev/test. See src/cmedalign/eval/judge.py for the dual-order judge reconciliation
+# used to filter pairs (only agree=True, margin above threshold, kept).
+
+source: data/normalized/sft_train.jsonl  # prompts only, train split
+generation:
+  policy_checkpoint: checkpoints/m1_sft
+  num_seeds_per_prompt: TBD  # multiple M1 samples per prompt; spec allows optionally
+    # mixing in an API-teacher response as one of the candidates
+  include_api_teacher_response: false  # flip on later if desired; record which alias if so
+target_pair_count: "10k-20k"
+selection:
+  rule_check_first: true  # cheap deterministic checks before spending judge calls
+  judges: []  # at least two distinct judge families, see configs/models/models.yaml
+  require_dual_order_agreement: true
+  min_margin: TBD  # tune on training-only dev data, never against test
+medical_review_sample:
+  fraction: TBD  # separate audit file, author-reviewed, output path TBD

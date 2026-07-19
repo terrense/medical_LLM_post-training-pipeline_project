@@ -1,0 +1,14 @@
+# Baseline model evaluation -- same subset/decoding/prompts as configs/eval/core.yaml's
+# chosen track, so scores are comparable. See configs/models/models.yaml for the actual
+# model registry (local baselines + API aliases).
+track: universal
+models:
+  - Qwen3-32B
+  - Qwen2.5-72B-Instruct
+  - Baichuan-M2-32B
+  - HuatuoGPT-o1-8B  # optional
+  - DEEPSEEK_V4_PRO
+  - DEEPSEEK_V4_FLASH
+  - MINIMAX_M3
+benchmarks: same_as: configs/eval/core.yaml
+decoding: same_as: configs/eval/core.yaml

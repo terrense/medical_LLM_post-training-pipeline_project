@@ -1,0 +1,32 @@
+# Data source manifest. Every entry must be filled in with a real revision + license +
+# hash by scripts/data_download.py before anything here can be marked cleared in
+# data/manifests/license_ledger.json (see src/cmedalign/data/license_ledger.py). Nothing
+# is downloaded yet -- deliberately deferred to the rented GPU server (better bandwidth,
+# and G1 needs to run there anyway).
+
+sft_corpora:
+  target_size: "80k-120k"
+  note: quality-filtered open medical multi-turn + single-turn samples, stratified by
+    specialty/multi-turn/safety/single-turn. Candidate sources TBD -- do not download
+    until license is confirmed cleared per-source.
+  sources: []  # fill in: {name, url, revision, license, expected_license_status}
+
+eval_benchmarks:
+  - name: CMB-Exam
+    split_policy: official train/test must not be altered
+    status: not_downloaded
+  - name: CMB-Clin
+    status: not_downloaded
+  - name: CMtMedQA_test
+    status: not_downloaded
+  - name: CliMedBench
+    status: not_downloaded
+  - name: MedBench
+    status: not_downloaded
+    note: official submission service -- if unavailable, save a conformant submission
+      file and mark pending, never fabricate a score.
+
+quarantine_policy: >
+  Any source with an unclear or missing license goes to data/quarantine/ and is excluded
+  from license_ledger.json's "cleared" set -- see LicenseLedger.is_trainable(). No
+  training script may read from data/quarantine/.

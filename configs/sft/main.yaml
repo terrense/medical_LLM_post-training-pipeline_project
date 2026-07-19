@@ -1,0 +1,33 @@
+# Frozen main SFT run config -- fill in the learning rate winner from smoke.yaml's
+# lr_sweep before running. Do not change positive-signal hyperparameters after looking
+# at dev/test results; only the lr choice itself is selected via lr_sweep.
+
+model:
+  model_name_or_path: Qwen/Qwen3-8B
+data:
+  dataset: data/normalized/sft_train.jsonl
+  dataset_split: train
+  eval_dataset: data/normalized/sft_dev.jsonl
+lora:
+  rank: 64
+  alpha: 128
+  dropout: 0.05
+  target_modules: all-linear
+train:
+  micro_batch_size: TBD
+  batch_size: 128
+  max_epochs: 2
+  seed: 42
+  max_length: 4096
+  gradient_checkpointing: true
+  precision: bf16
+  lr: TBD  # winner from configs/sft/smoke.yaml lr_sweep
+optim:
+  name: adam
+  betas: [0.9, 0.95]
+  weight_decay: 0.0
+  lr_scheduler: cosine_with_min_lr
+  lr_warmup_ratio: 0.03
+checkpoint:
+  save_hf: true
+  output_dir: checkpoints/m1_sft

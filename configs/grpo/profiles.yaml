@@ -1,0 +1,8 @@
+# Patient-profile pool for the GRPO multi-turn environment. See
+# src/cmedalign/data/schemas.py:PatientProfile and src/cmedalign/agents/patient.py for
+# the hidden/visible field split this pool must respect.
+source_train_conversations: data/normalized/sft_train.jsonl  # profiles built FROM train only
+target_pool_size: "2k-4k"
+smoke_sizes: [32, 200]
+stratify_by: [specialty]
+required_info_weighting: TBD  # per-item weights, author-reviewed for at least the red-flag items

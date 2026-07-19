@@ -1,0 +1,22 @@
+# Frozen main GRPO run -- copy values from the smoke_200.yaml gate results before running.
+# Flag names verified against pinned OpenRLHF v0.10.4 argparse source, see
+# artifacts/audits/openrlhf_commit_notes.md -- do NOT copy flat-style flag names from
+# OpenRLHF's hosted docs, this commit uses dotted namespaces.
+model:
+  model_name_or_path: checkpoints/m2_dpo
+data:
+  profiles: data/manifests/patient_profiles_main.jsonl
+algo:
+  advantage:
+    estimator: group_norm  # vanilla GRPO (DeepSeekMath-style group-relative advantage)
+  kl:
+    use_loss: true
+    init_coef: 0.01
+actor:
+  eps_clip: 0.2
+rollout:
+  n_samples_per_prompt: TBD  # from smoke gate, 4 or 8
+train:
+  agent_func_path: src/cmedalign/agents/openrlhf_agent_func.py  # TBD: write against
+    # examples/python/agent_func_openai_server_executor.py as reference, on the server
+  seed: 42

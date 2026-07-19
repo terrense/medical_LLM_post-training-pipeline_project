@@ -1,0 +1,18 @@
+# Human-eval blind package build config. See src/cmedalign/eval/human_pack.py.
+n_cases: 80
+systems:
+  - M0
+  - M1
+  - M2
+  - M3
+  - strongest_external_baseline  # pre-selected before packaging, TBD which one
+stratify_by: [specialty, safety_tags]
+seed: TBD  # fix once, record in STATUS.md, never re-roll after seeing any ratings
+outputs:
+  cases_blinded: human_eval/cases_blinded.jsonl
+  assignment: human_eval/assignment.csv
+  blind_map_encrypted: human_eval/blind_map.enc
+  rating_schema: human_eval/rating_schema.json
+  interface_data_dir: human_eval/interface_data/
+  rater_readme: human_eval/README_FOR_RATERS.md
+forbidden_identifiers_source: configs/models/models.yaml  # derive the actual list at build time

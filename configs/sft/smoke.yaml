@@ -1,0 +1,43 @@
+# SFT smoke config: small fast-training subset dev sweep. Compares at most a couple of
+# learning rates on a fixed seed, per the spec -- this is NOT the frozen main run config.
+# Flag names below use OpenRLHF's actual dotted CLI namespace (verified against the
+# pinned commit, see artifacts/audits/openrlhf_commit_notes.md), not the flat names shown
+# in OpenRLHF's hosted docs.
+
+model:
+  model_name_or_path: Qwen/Qwen3-8B  # resolve to local path + pinned revision on server
+
+data:
+  dataset: data/normalized/sft_train_smoke.jsonl
+  dataset_split: train
+  # assistant-only loss masking: confirm exact mechanism in
+  # openrlhf/trainer/sft_trainer.py (or its collator) on the server before assuming this
+  # config key name is correct -- see notes item 2 in openrlhf_commit_notes.md.
+
+lora:
+  rank: 64
+  alpha: 128
+  dropout: 0.05
+  target_modules: all-linear  # attention + MLP linear modules
+
+train:
+  micro_batch_size: TBD  # set from actual GPU VRAM after G0 inventory
+  batch_size: 128
+  max_epochs: 1
+  seed: 42
+  max_length: 4096
+  gradient_checkpointing: true
+  precision: bf16
+
+lr_sweep:
+  # spec: "只允许比较少量学习率(建议 5e-5 与 1e-4)和一次固定 seed"
+  candidates: [5e-5, 1e-4]
+  fixed_seed: 42
+  selection_metric: training/dev composite only, never test
+
+optim:
+  name: adam
+  betas: [0.9, 0.95]
+  weight_decay: 0.0
+  lr_scheduler: cosine_with_min_lr
+  lr_warmup_ratio: 0.03

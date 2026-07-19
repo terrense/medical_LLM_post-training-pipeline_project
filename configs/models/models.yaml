@@ -1,0 +1,42 @@
+# Model registry. Local models are identified by HF repo id; API models by an alias that
+# resolves to {ALIAS}_BASE_URL / {ALIAS}_API_KEY / {ALIAS}_MODEL env vars (see
+# src/cmedalign/eval/api_adapter.py). Nothing here is a secret.
+
+backbone:
+  hf_repo: Qwen/Qwen3-8B
+  revision: TBD  # pin exact commit/tag once downloaded on the server, never float "main"
+  enable_thinking: false  # forced for all main-experiment runs; record per-generation too
+
+base_ablation_only:
+  hf_repo: Qwen/Qwen3-8B-Base
+  revision: TBD
+  note: >
+    Capped small-scale initialization ablation only (role leakage, future-turn
+    continuation, stop-token compliance, overlong outputs) against the same small SFT
+    subset, same token count, same optimizer as the Qwen3-8B backbone. Never the main
+    training backbone.
+
+local_baselines:
+  - hf_repo: Qwen/Qwen3-32B
+    revision: TBD
+    enable_thinking: false
+  - hf_repo: Qwen/Qwen2.5-72B-Instruct
+    revision: TBD
+  - hf_repo: baichuan-inc/Baichuan-M2-32B
+    revision: TBD
+  - hf_repo: FreedomIntelligence/HuatuoGPT-o1-8B
+    revision: TBD
+    optional: true
+
+api_baselines:
+  - alias: DEEPSEEK_V4_PRO
+    paper_display_name: "DeepSeek-V4-Pro"
+    note: exact server-reported model id + access date recorded per-call, see RawGeneration.accessed_at
+  - alias: DEEPSEEK_V4_FLASH
+    paper_display_name: "DeepSeek-V4-Flash"
+  - alias: MINIMAX_M3
+    paper_display_name: "MiniMax-M3"
+
+# GSPO is related-work only until the core M0-M3 chain + all required evals are archived.
+gspo_optional_ablation:
+  enabled: false

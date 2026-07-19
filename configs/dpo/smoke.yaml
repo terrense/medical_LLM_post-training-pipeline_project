@@ -1,0 +1,16 @@
+# DPO smoke-start config -- these are starting points per the spec, to be re-frozen
+# after a training/dev gate pass, not final numbers.
+model:
+  model_name_or_path: checkpoints/m1_sft
+data:
+  dataset: data/manifests/dpo_pairs_smoke.jsonl
+lora:
+  rank: 64
+  alpha: 128
+  dropout: 0.05
+  target_modules: all-linear
+train:
+  beta: 0.1
+  lr: 5e-6  # OpenRLHF's own default is 1e-5; spec wants 5e-6 for the smoke start, pass explicitly
+  seed: 42
+  max_epochs: 1

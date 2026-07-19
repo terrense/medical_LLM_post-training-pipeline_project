@@ -1,0 +1,25 @@
+# Core evaluation: M0/M1/M2/M3 (every checkpoint, per G5 -- never just the final model)
+# against the required benchmarks, plus whichever local/open baselines fit the "track"
+# being run. See README/spec for the full-local vs universal track distinction; do not
+# mix their scores into one column.
+
+track: full-local  # or "universal" -- run both separately, never merged
+models:
+  - M0  # Qwen3-8B, enable_thinking=false, no training
+  - M1  # SFT
+  - M2  # DPO
+  - M3  # GRPO
+benchmarks:
+  - CMB-Exam
+  - CMB-Clin
+  - CMtMedQA_test
+  - CliMedBench
+  - MedBench  # submit if service available; else save conformant submission, mark pending
+decoding:
+  temperature: TBD  # frozen once chosen, same across all models in a track
+  max_new_tokens: TBD
+qwen3_chat_template_kwargs:
+  enable_thinking: false  # must be explicitly passed and recorded per RawGeneration
+judge:
+  families: []  # at least two distinct judge model families
+  dual_order: true  # always issue both orderings, see src/cmedalign/eval/judge.py

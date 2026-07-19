@@ -1,0 +1,19 @@
+# Frozen main DPO run -- copy smoke.yaml's values here once the training/dev gate passes,
+# adjust only what the gate justifies changing.
+model:
+  model_name_or_path: checkpoints/m1_sft
+data:
+  dataset: data/manifests/dpo_pairs.jsonl
+lora:
+  rank: 64
+  alpha: 128
+  dropout: 0.05
+  target_modules: all-linear
+train:
+  beta: TBD  # from smoke.yaml gate
+  lr: TBD
+  seed: 42
+  max_epochs: TBD
+checkpoint:
+  save_hf: true
+  output_dir: checkpoints/m2_dpo

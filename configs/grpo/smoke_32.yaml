@@ -1,0 +1,22 @@
+# GRPO smoke, 32 profiles -- full rollout -> reward -> backprop, sanity check before
+# scaling to 200. Flag names verified against pinned OpenRLHF v0.10.4 argparse source,
+# see artifacts/audits/openrlhf_commit_notes.md -- do NOT copy flat-style flag names from
+# OpenRLHF's hosted docs, this commit uses dotted namespaces.
+model:
+  model_name_or_path: checkpoints/m2_dpo
+data:
+  profiles: data/manifests/patient_profiles_smoke32.jsonl
+algo:
+  advantage:
+    estimator: group_norm  # vanilla GRPO (DeepSeekMath-style group-relative advantage)
+  kl:
+    use_loss: true
+    init_coef: 0.01
+actor:
+  eps_clip: 0.2
+rollout:
+  n_samples_per_prompt: 4  # group size; required >1 for group_norm. Scale to 8 if VRAM allows.
+train:
+  agent_func_path: src/cmedalign/agents/openrlhf_agent_func.py  # TBD: write against
+    # examples/python/agent_func_openai_server_executor.py as reference, on the server
+  seed: 42

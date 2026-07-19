@@ -1,0 +1,71 @@
+# ============================================================================
+# SECTION 1 -- verified locally (Windows prep machine, CPU-only, no GPU).
+# These exact versions are pinned from `pip freeze` after installing and
+# passing the full tests/unit suite (96 tests) on 2026-07-19, Python 3.13.9.
+# Safe to trust for CPU-only work (data schemas, parsers, rewards, stats,
+# human-eval packaging, tokenizer-only chat-template logic).
+# ============================================================================
+annotated-doc==0.0.4
+annotated-types==0.7.0
+anyio==4.14.2
+certifi==2026.6.17
+cffi==2.1.0
+charset-normalizer==3.4.9
+click==8.4.2
+colorama==0.4.6
+cryptography==49.0.0
+datasketch==2.0.0
+filelock==3.31.0
+fsspec==2026.6.0
+h11==0.16.0
+hf-xet==1.5.2
+httpcore==1.0.9
+httpx==0.28.1
+huggingface_hub==1.24.0
+idna==3.18
+iniconfig==2.3.0
+Jinja2==3.1.6
+markdown-it-py==4.2.0
+MarkupSafe==3.0.3
+mdurl==0.1.2
+numpy==2.5.1
+packaging==26.2
+pluggy==1.6.0
+pycparser==3.0
+pydantic==2.13.4
+pydantic_core==2.46.4
+Pygments==2.20.0
+pytest==9.1.1
+PyYAML==6.0.3
+regex==2026.7.19
+requests==2.34.2
+responses==0.26.2
+rich==15.0.0
+safetensors==0.8.0
+scipy==1.18.0
+shellingham==1.5.4
+tokenizers==0.22.2
+tqdm==4.69.0
+transformers==5.14.1
+typer==0.27.0
+typing-inspection==0.4.2
+typing_extensions==4.16.0
+urllib3==2.7.0
+
+# ============================================================================
+# SECTION 2 -- GPU-server-only, NOT YET VERIFIED. Best-effort starting pins
+# based on what's known compatible with Qwen3 + OpenRLHF v0.10.4
+# (ad1796e62b56bc9deae95542778336f88d24a3ed, see
+# artifacts/audits/openrlhf_commit_notes.md) as of this writing. `make
+# env-check` (G0) MUST verify these actually install and pass a CUDA/NCCL/vLLM
+# smoke test before anything else runs -- do not trust these numbers blindly,
+# re-pin to whatever the pinned OpenRLHF commit's own requirements.txt
+# actually resolves to on the rented hardware, and update this file to match
+# reality once G0 passes.
+# ============================================================================
+# torch==<TBD, match CUDA version of rented GPUs>
+# vllm==<TBD, must support Qwen3 + the installed torch/CUDA>
+# deepspeed==<TBD>
+# ray==<TBD, needed for OpenRLHF's train_ppo_ray.py>
+# flash-attn==<TBD, must match torch/CUDA ABI exactly, prebuilt wheel per GPU arch>
+# -e vendor/OpenRLHF (pinned checkout, tag v0.10.4)
