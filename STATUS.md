@@ -1,4 +1,10 @@
-STAGE: local-prep (no GPU server rented yet) — GPU-independent groundwork complete
+> This file is the chronological detail log. For a fast cold-start (new window, crashed
+> terminal, no memory of this conversation), read `spec/requirements.md` →
+> `spec/design.md` → `spec/tasks.md` first — this file is the "what happened when"
+> supplement, not the primary entry point anymore.
+
+STAGE: local-prep (no GPU server rented yet) — GPU-independent groundwork + all 3 API
+  baselines + GitHub remote done; waiting on user's own medical dialogue data
 STATUS: PASS (for everything in scope of local prep; G0 itself cannot start without a GPU)
 COMMIT: see `git log -1` after first commit
 CONFIG_HASH: n/a (no training run yet)

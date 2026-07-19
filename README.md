@@ -2,13 +2,17 @@
 
 Reproducible Chinese medical multi-turn dialogue alignment experiment.
 
+> **New session / new terminal window / picking this back up cold?** Read, in order:
+> 1. [`spec/requirements.md`](spec/requirements.md) — the full locked spec, verbatim (what/why, non-negotiable rules)
+> 2. [`spec/design.md`](spec/design.md) — decisions actually made so far, organized by topic
+> 3. [`spec/tasks.md`](spec/tasks.md) — durable checklist of exactly what's done vs pending (do NOT trust Claude Code's in-session task list, it does not survive a new window)
+> 4. [`STATUS.md`](STATUS.md) — chronological log of what happened, when, why
+> 5. [`BLOCKERS.md`](BLOCKERS.md) — anything currently stopped pending a decision
+
 Training chain: `M0 Qwen3-8B (enable_thinking=False) → M1 SFT → M2 DPO → M3 vanilla GRPO`
 (GRPO = DeepSeekMath Group Relative Policy Optimization, via OpenRLHF's
 `--algo.advantage.estimator group_norm`). GSPO is related-work only unless core results
 are fully archived and there is spare budget for an optional same-budget ablation.
-
-See the full execution spec this project was scaffolded from for all rules, gates, and
-deliverables (kept outside this repo — ask the project owner if you need the source doc).
 
 ## Status
 
