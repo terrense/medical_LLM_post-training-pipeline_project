@@ -17,6 +17,45 @@ updated yet — check `STATUS.md`'s top block's date against this file's "Last u
 
 ---
 
+## Phase 0.0 — THE ANCHOR: read this before anything else
+
+`E:\cmedalign_paper\main.tex` (+ its `RESULTS_AND_TABLE_SCHEMA.md`,
+`HUMAN_EVALUATION_PROTOCOL.md`, `FIGURE_SPECIFICATIONS.md`, `SOURCE_AUDIT.md`) is now the
+single source of truth for what this project builds. See `spec/design.md`'s "THE ANCHOR"
+section for the full reasoning. Two decisions that change prior assumptions:
+
+- [ ] **GRPO must be the multi-turn patient-simulation environment `main.tex` describes**
+      (frozen Qwen2.5-7B-Instruct patient, hidden profile, 5-component reward), **not**
+      a static MCQ rule-reward setup. A separate, already-completed MCQ-reward GRPO
+      round exists in `rlhf_lab_cloud_kit` — that is a side-result, never to be reported
+      as this paper's M3.
+- [ ] Tool-calling, DAgger loops, agent action-types, packing/loss-norm/curriculum as
+      *reported research comparisons*, and gradient-conflict/PCGrad/multi-adapter are
+      explicitly **out of scope** for this paper (removed 2026-07-19). Don't build these
+      even though `rlhf_lab_cloud_kit`'s separate SFT-rigor checklist calls for them —
+      that checklist is generic SFT hygiene, not this paper's contribution.
+- [ ] `rlhf_lab_cloud_kit` is now historical/frozen (no new training runs there); pull in
+      its reusable assets (task_type-tagged data, cleaning/dedup logic, locked LoRA
+      rank/alpha, DPO dual-judge pattern) per the exact list in `spec/design.md` — do NOT
+      pull in `internal_seed_flywheel`/`derived_from_seed` until
+      `rlhf_lab_cloud_kit/BLOCKERS.md` #1 (PII status) is resolved.
+- [ ] Read `FIGURE_SPECIFICATIONS.md` and `SOURCE_AUDIT.md` in full (not yet done as of
+      2026-07-19) before starting any figure-generation or citation-control work.
+- [ ] Reconcile `src/cmedalign/stats/` and `src/cmedalign/eval/human_pack.py`'s generic
+      schemas against `RESULTS_AND_TABLE_SCHEMA.md`'s exact contract (`results/`,
+      `tables/`, `figures/`, `human_eval/` directory layout; the exact `statistics.json`
+      per-comparison fields; `table_main_universal.csv`/`table_stage_ablation.csv`/
+      `table_human.csv` exact columns) — the generic utilities are still useful
+      primitives underneath, but the actual output files must match this schema exactly,
+      not an ad-hoc one. Not yet done.
+- [ ] `human_pack.py`'s rating rubric content must be copied verbatim from
+      `HUMAN_EVALUATION_PROTOCOL.md` §8 (the five 1-5 dimension anchors) — not invented
+      generically. Missing deliverables per that protocol: `assignment.csv` (rater-ID to
+      case-bundle assignment), `ratings_raw/`, `ratings_anonymized.csv`,
+      `human_statistics.json`, `protocol_deviations.md`.
+
+---
+
 ## Phase 0 — Local prep (this Windows machine, no GPU rented yet)
 
 - [x] Project scaffold created at `E:\cmedalign`, git initialized
@@ -63,10 +102,11 @@ updated yet — check `STATUS.md`'s top block's date against this file's "Last u
 
 ### Open / pending in Phase 0
 
-- [ ] **Waiting on user:** local path to their pre-existing multi-turn medical dialogue
-      data, plus provenance (self-collected vs third-party) — determines
-      `data/raw/` (cleared) vs `data/quarantine/` (unclear license). User said (2026-07-19)
-      the data is being prepared/copied and will take time.
+- [x] ~~Waiting on user: local path to pre-existing multi-turn medical dialogue data~~ —
+      resolved 2026-07-19: this is `E:\rlhf_lab_cloud_kit` (146,809 records, 10
+      task_types, already cleaned/deduped). See Phase 0.0 above and `spec/design.md`'s
+      "THE ANCHOR" section for exactly what gets pulled in and what's still blocked
+      (PII status of the real-business-data sources).
 - [ ] Nothing else is blocked in Phase 0 — everything GPU-independent that could be
       built without real data has been built.
 
@@ -95,10 +135,21 @@ Do these in order; each is a real gate, don't skip ahead if one fails.
 
 ## Phase 2 — Data (G1)
 
-- [ ] Resolve the user's pre-existing data provenance (see Phase 0 open item) — do this
-      FIRST, it may already be sitting in `data/raw/` or `data/quarantine/` by then
-- [ ] Download/identify SFT corpora (target 80k-120k, quality-filtered, stratified) —
-      see `configs/data/sources.yaml` (currently empty placeholder list)
+- [ ] Import the reusable, already-cleaned/deduped/task_type-tagged records from
+      `E:\rlhf_lab_cloud_kit\data\eval_sets\05_final_v11\train.jsonl` (146,809 records)
+      into `data/raw/` — per `spec/design.md`, exclude `internal_seed_flywheel` and
+      `derived_from_seed` until the PII blocker there is resolved; the remaining
+      open-source-tagged sources (`Huatuo26M-Lite`, `DISC-Med-SFT`,
+      `Chinese-medical-dialogue`, `shibing624-finetune-zh`, `med_zh_real`) can be
+      imported now
+- [ ] Still need, on top of the above: CMtMedQA train/test official split, MedDG,
+      IMCS-21 (all named explicitly in `main.tex`'s data table but not present in the
+      rlhf_lab_cloud_kit pool) — download/identify these separately
+- [ ] Download eval benchmarks: CMB-Exam, CMB-Clin, CMtMedQA_test, CliMedBench; attempt
+      MedBench submission or save conformant pending submission
+- [ ] Re-run `src/cmedalign/data/dedup.py`'s embedding-similarity gate (the one
+      near-dup check rlhf_lab_cloud_kit never implemented) against the imported pool,
+      not just exact+MinHash
 - [ ] Download eval benchmarks: CMB-Exam, CMB-Clin, CMtMedQA_test, CliMedBench; attempt
       MedBench submission or save conformant pending submission
 - [ ] Populate `data/manifests/license_ledger.json` for every source (via

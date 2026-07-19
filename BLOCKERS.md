@@ -5,7 +5,15 @@ Nothing is silently worked around. Empty section = nothing currently blocked.
 
 ## Open
 
-(none yet — local prep has not hit a scientific/licensing/privacy/cost decision point)
+1. **PII/de-identification status of `internal_seed_flywheel` and `derived_from_seed`
+   (real business data, 14,718 + 14,433 records, in `E:\rlhf_lab_cloud_kit`) is
+   unknown.** Full detail in `E:\rlhf_lab_cloud_kit\BLOCKERS.md` #1 — the existing
+   cleaning pipeline there only regex-flags (doesn't remove) phone/QQ/email hits for
+   this source, and doesn't check names/ID numbers/addresses/record numbers at all.
+   **This blocks importing those two specific sources into `data/raw/` here** (see
+   `spec/tasks.md` Phase 2). The other 6 sources in that pool (`Huatuo26M-Lite`,
+   `DISC-Med-SFT`, `Chinese-medical-dialogue`, `shibing624-finetune-zh`, `med_zh_real`,
+   `gen_minimax_m3`) are open/synthetic and not affected by this blocker.
 
 ## Resolved
 

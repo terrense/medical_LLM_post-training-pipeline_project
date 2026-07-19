@@ -5,6 +5,109 @@ not chronologically — for the chronological blow-by-blow, see `STATUS.md`'s Lo
 If you're picking this project back up cold, read `spec/requirements.md` first, this
 file second, then `spec/tasks.md` for exactly what's done vs pending.
 
+## THE ANCHOR (2026-07-19): `E:\cmedalign_paper` is the single source of truth for scope
+
+After building out a generic 75-point SFT-rigor checklist (a *different*, unrelated
+project's checklist, see below) and cross-referencing an earlier, already-completed
+local training round, the user pointed at `E:\cmedalign_paper` — the actual manuscript
+package this whole project was scaffolded from (`CLAUDE_CODE_EXECUTION_PLAN.md` in that
+folder is verbatim identical to `spec/requirements.md` here). Reading `main.tex` in full
+resolved a real scope-creep problem: **cmedalign's job is to fill in `main.tex`'s ~84
+`TBD` macros, using exactly the methodology the paper describes — nothing more, nothing
+that doesn't serve that.** Concretely, this means:
+
+- **In scope, because the paper explicitly needs it**: M0→M1→M2→M3 stage comparison;
+  CMB-Exam/CMB-Clin/CMtMedQA_test/CliMedBench/MedBench; a multi-turn patient-simulation
+  GRPO environment with the 5-component reward (`clinical/info/safety/process/comm`,
+  see the exact formula in `main.tex` §Reward design); a reward-component ablation
+  (remove info reward, remove safety reward, remove turn/length costs); the Base-vs-
+  Instruct initialization probe; comparison against Qwen3-32B/Qwen2.5-72B-Instruct/
+  Baichuan-M2-32B/DeepSeek-V4-Pro/DeepSeek-V4-Flash/MiniMax-M3/optional HuatuoGPT-o1-8B;
+  blinded 80-case human eval with Krippendorff's alpha and Spearman judge-agreement;
+  Holm-corrected statistics throughout.
+- **Explicitly OUT of scope for this paper** (dropped 2026-07-19 per user instruction
+  "tool-calling 似乎没价值...我们要统一一个主心骨"): tool-calling data/evaluation,
+  DAgger-style recovery-trajectory loops, explicit agent action-type decomposition
+  (ASK/ANSWER/CALL_TOOL/...), sequence-packing as a reported research comparison,
+  token-level-vs-sample-level loss normalization as a reported research comparison,
+  staged-vs-mixed curriculum as a reported research comparison, gradient-conflict/
+  PCGrad/KL-distillation/multi-adapter experiments. None of these appear anywhere in
+  `main.tex`. They came from a *separate* engineering-rigor checklist
+  (`E:\rlhf_lab_cloud_kit\spec\requirements_sft_rigor.md`) that is good general SFT
+  hygiene but is not this paper's contribution — building them would be exactly the
+  "led astray by a previous experiment" failure mode the user called out.
+- **Authoritative schemas that supersede this project's own generic implementations**:
+  `E:\cmedalign_paper\RESULTS_AND_TABLE_SCHEMA.md` defines the exact `results/`,
+  `tables/`, `figures/`, `human_eval/` directory contract, required identity fields
+  (`run_id, code_commit, config_hash, prompt_hash, model_label, model_id_exact, ...`),
+  and the exact `statistics.json` per-comparison schema
+  (`comparison_id, model_a, model_b, metric, paired, n_cases, estimate, ci_method,
+  ci_low, ci_high, p_raw, p_holm, effect_size, subset_id, seed`). This is stricter and
+  more specific than the generic `build_table_from_item_level`/`bootstrap_ci` utilities
+  already built in `src/cmedalign/stats/` — those utilities are still useful primitives,
+  but the actual output files must conform to this exact schema, not an ad-hoc one.
+  Likewise `E:\cmedalign_paper\HUMAN_EVALUATION_PROTOCOL.md` is the authoritative,
+  fully-specified human-eval design (exact 5-dimension 1-5 rubric text with anchors,
+  role definitions, calibration procedure, severe-disagreement escalation rules,
+  deliverable file list) — `src/cmedalign/eval/human_pack.py`'s blinding/Latin-square/
+  encryption mechanics are compatible with it (file names already happen to match:
+  `cases_blinded.jsonl`, `blind_map.enc`) but the actual rating rubric content must be
+  copied verbatim from that protocol document, not invented generically, and several
+  deliverables it requires (`assignment.csv` with rater IDs, `ratings_raw/`,
+  `ratings_anonymized.csv`, `human_statistics.json`, `protocol_deviations.md`) are not
+  yet built. `FIGURE_SPECIFICATIONS.md` and `SOURCE_AUDIT.md` are likewise authoritative
+  for figure generation and citation control respectively, and should be read in full
+  before that work starts (not yet done as of this writing — flagged in `spec/tasks.md`).
+
+### The one real conflict this surfaced, and how it was resolved
+
+`E:\rlhf_lab_cloud_kit` (a separate, earlier, already-executed local/company-GPU project
+using LLaMA-Factory — see its own `spec/design.md` for full detail) had already run a
+complete SFT→DPO→GRPO round with real results. But its GRPO stage is **not the same
+experiment** as this paper's GRPO: round 1 used a static CMExam multiple-choice
+rule-reward (`correct answer = 1`), whereas `main.tex` requires a multi-turn
+patient-simulation environment with a frozen `Qwen2.5-7B-Instruct` patient and the
+5-component reward. Reusing round 1's GRPO result as M3 would misrepresent what the
+paper claims to have measured. **Decision (user, 2026-07-19): rebuild GRPO as the real
+multi-turn patient-simulation environment `main.tex` describes; round 1's MCQ-reward
+GRPO is a separate, smaller side-result (interesting RLVR data point, not M3).**
+
+**Decision (user, 2026-07-19): consolidate to a single active project.** Going forward,
+`cmedalign` (this project) is the one pipeline that actually runs the paper's
+experiments. `rlhf_lab_cloud_kit` is now historical/frozen — it does not get new
+training runs — but several of its assets are real, reusable inputs to this project's
+data pipeline, not to be rebuilt from scratch:
+
+- The 10-category `task_type` taxonomy and its 146,809 real, already-classified,
+  already-deduplicated records (`Huatuo26M-Lite`, `DISC-Med-SFT`,
+  `Chinese-medical-dialogue`, `shibing624-finetune-zh` = open-source; `med_zh_real` =
+  large real-world QA pool; `internal_seed_flywheel`/`derived_from_seed` = real business
+  data, **PII status unresolved, see `E:\rlhf_lab_cloud_kit\BLOCKERS.md` #1 — do not pull
+  this specific source into cmedalign's training pool until that's answered**).
+- The cleaning/dedup pipeline logic (`clean_02.py`'s ad/PII/dosage/definitive-diagnosis/
+  danger regex filters, `dedup_04.py`'s exact-hash dedup, `sample_05_v11.py`'s MinHash
+  near-dup) — reuse the *logic*, not necessarily the literal scripts, since cmedalign's
+  own `src/cmedalign/data/dedup.py` already implements exact+MinHash+embedding dedup
+  independently and is unit-tested; the embedding-similarity gate that
+  `rlhf_lab_cloud_kit` never implemented is one `cmedalign` already has (untested against
+  real data yet).
+- The already-measured M0 baseline numbers (CMB 73.8%, CMExam 82.6% on the base model —
+  note: paper's M0 is the **Instruct**, non-thinking checkpoint, not the base model that
+  earlier baseline was measured on; these numbers are a useful sanity reference, not a
+  substitute for re-measuring M0 = Qwen3-8B-Instruct per the paper's own protocol).
+- The locked LoRA hyperparameters (`rank=64, alpha=128, dropout=0.05, target=all-linear`)
+  — this already matches `main.tex`'s own frozen hyperparameter table exactly, so the
+  rank/lr/target-module sweep that produced it does not need to be redone; only the
+  *learning rate* is still genuinely open in both places (marked `TBD` in `main.tex`,
+  and round 1's sweep picked `lr=2e-4` for a different data mixture/task than this
+  paper's — needs its own smoke sweep per `spec/requirements.md`'s SFT section, not
+  assumed to transfer).
+- The DPO dual-judge pattern (`gen_dpo_pairs.py`, `dpo_judge.py` used MiniMax-M3 +
+  DeepSeek as two independent judges) is structurally close to what `main.tex` requires
+  ("two independently configured judge models... both presentation orders") — worth
+  checking whether it already does order-counterbalancing before assuming it needs to
+  be rebuilt from scratch; not yet verified (see `spec/tasks.md`).
+
 ## Where things stand (one paragraph)
 
 Local prep phase, no GPU server rented yet. Everything GPU-independent is implemented
