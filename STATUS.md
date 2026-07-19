@@ -148,3 +148,31 @@ ETA: local prep done in a single sitting; the real 96h execution clock starts on
   since it costs real money and needs real credentials) one-shot smoke test that loads
   `.env`, calls each configured alias once with a minimal prompt, and reports whether
   `<think>` tags showed up. Re-run this any time a new API alias is wired up.
+
+### 2026-07-19 (later still) — MiniMax M3 confirmed working; all three API baselines live
+- User pointed at MiniMax's official docs (`platform.minimaxi.com/docs/api-reference/text-anthropic-api`)
+  to resolve the earlier "unknown proxy host" blocker. Fetched it (and the API reference
+  index) instead of guessing: MiniMax exposes BOTH an Anthropic-messages-compatible API
+  (`https://api.minimaxi.com/anthropic`) and a standard OpenAI-chat-completions-compatible
+  one (`https://api.minimaxi.com/v1` domestic, `https://api.minimax.io/v1`
+  international), model id `MiniMax-M3` either way. Used the OpenAI-compatible one since
+  it matches our existing `api_adapter.py` without needing a second client
+  implementation. Set `MINIMAX_M3_BASE_URL=https://api.minimaxi.com/v1`,
+  `MINIMAX_M3_MODEL=MiniMax-M3` in `.env`.
+- Ran the real smoke test: MiniMax M3 **is** a thinking model as the user warned --
+  raw response came back wrapped in `<think>...</think>` (508 chars raw, reasoning
+  visible in English even though the question was in Chinese) followed by a clean
+  112-char Chinese answer. `human_pack.strip_thinking_trace` correctly removed the
+  entire `<think>` block, leaving only the correct final answer. Confirmed by writing
+  both raw and stripped text to UTF-8 files and reading them back (the Windows terminal
+  itself garbles Chinese text in this session -- that's a display-only codepage issue,
+  not a data problem; always verify via file, not raw terminal echo, when eyeballing
+  non-ASCII API output here).
+- **All three API baselines (DeepSeek V4-Pro, DeepSeek V4-Flash, MiniMax M3) are now
+  confirmed working end-to-end through the real adapter code.** `.env` is fully filled
+  in (no more `TODO_FILL_IN` placeholders).
+- User also sent a WeChat article link claimed to be about DeepSeek V4 Pro/Flash --
+  WebFetch got an anti-bot "环境异常" (environment exception) verification wall, not the
+  actual article content, so nothing from it could be incorporated. Not blocking:
+  Pro/Flash are already independently confirmed working via the official `/v1/models`
+  endpoint and real completions above, so this doesn't gate anything.
