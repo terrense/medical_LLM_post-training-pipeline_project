@@ -86,7 +86,17 @@ section for the full reasoning. Two decisions that change prior assumptions:
       `write_rater_assignment_csv()` (produces `assignment.csv`: every case gets >=2
       independent raters, 25% get a 3rd for reliability, per §7, deterministic,
       load-balanced). Still missing: `ratings_raw/`, `ratings_anonymized.csv` writer,
-      `human_statistics.json` (needs ordinal Krippendorff's alpha — not yet
+      `human_statistics.json` writer (the alpha computation itself is now done, see
+      below — the writer that assembles the full `human_statistics.json` file per
+      RESULTS_AND_TABLE_SCHEMA.md is still separate work).
+- [x] **Done 2026-07-20** — `src/cmedalign/stats/reliability.py`: ordinal
+      Krippendorff's alpha (`krippendorff_alpha_ordinal`) + case-clustered bootstrap CI
+      (`bootstrap_alpha_ci`), hand-implemented (no suitable dependency found), 6 new
+      tests (perfect agreement -> exactly 1.0, systematic extreme disagreement -> <0,
+      single-rater units correctly ignored not crashed, degenerate all-same-category
+      correctly raises rather than returning garbage). 128/128 tests passing overall.
+      OLD (superseded) note below, kept for history:
+      ~~`human_statistics.json` (needs ordinal Krippendorff's alpha — not yet
       implemented, no library for it is installed; would need either a manual
       implementation or adding a dependency), `protocol_deviations.md` template.
 - [x] Data cleaning tooling switched to **data-juicer** per user instruction

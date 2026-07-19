@@ -323,9 +323,21 @@ base64 密文，本身就有几个百分点的偶然命中概率，已经改成�
 全部 122 个测试通过（新增 22 条：3 judge_scorer + 11 results_schema + 4 build_tables
 + 4 human_pack assignment）。
 
-**还没做的**（老实列）：`human_statistics.json` 需要的 ordinal Krippendorff's alpha
-还没实现（没装相关库，需要手写或加依赖）；`ratings_raw/`、`ratings_anonymized.csv`
+**还没做的**（老实列，2026-07-19 当时）：`human_statistics.json` 需要的 ordinal
+Krippendorff's alpha 还没实现；`ratings_raw/`、`ratings_anonymized.csv`
 写入函数、`protocol_deviations.md` 模板还没写；`eval-core`/`eval-baselines` 还没有
 真正产出 `results/benchmark_item_scores.jsonl` 这类 item-level 文件（因为还没有真实
+
+### 2026-07-20 — 实现 ordinal Krippendorff's alpha
+
+用户问"这是啥？然后呢？"。写了 `src/cmedalign/stats/reliability.py`：手写实现
+（没找依赖库，直接按标准 coincidence-matrix 公式实现），包含 `krippendorff_alpha_ordinal`
+（核心计算）和 `bootstrap_alpha_ci`（case-clustered bootstrap CI，跟项目里其它统计量
+用同一套约定）。6 条新单测：完全一致打分给出 alpha=1.0（精确验证）、系统性极端分歧
+给出 alpha<0（比随机还差，符合预期）、单评价者的病例被正确忽略而不是报错、全部同一
+分数的退化情况正确抛出异常（alpha 在没有任何方差时无定义，不是返回垃圾值）。全部
+128 个测试通过。**还没做的**：还没有真实人评数据可以真正跑一遍（要等 M3 出来、盲评包
+发出去、评价者交回分数）；`ratings_raw/`/`ratings_anonymized.csv`/
+`protocol_deviations.md` 仍未写。
 训练/评测跑起来，构建函数已经就绪，等真实数据）；MedDG（找到在 GitHub 但没查到
 license）、IMCS-21（还没定位）仍未下载。
