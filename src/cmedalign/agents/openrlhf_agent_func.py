@@ -6,13 +6,17 @@ This is a SCAFFOLD, not yet a complete, tested implementation — it needs a rea
 run at all, so it can't be exercised end-to-end on this Windows prep machine. What IS
 done and reused here without modification: the hidden/visible profile boundary
 (`cmedalign.agents.patient`), the deterministic parts of the reward
-(`cmedalign.rewards.components`), and the generic OpenAI-compatible client
-(`cmedalign.eval.api_adapter`) for the frozen patient model. What's still a TODO,
-clearly marked below: the LLM-judge scoring of the open-ended reward components
-(clinical/safety/process/communication) — main.tex's own text says these need "a frozen
-evaluator with case-specific rubrics," and writing that rubric/prompt is real judgment
-work that should happen once there's compute to actually calibrate it against real
-transcripts, not guessed at now.
+(`cmedalign.rewards.components`), the generic OpenAI-compatible client
+(`cmedalign.eval.api_adapter`) for the frozen patient model, and — as of 2026-07-19 —
+LLM-judge scoring of the open-ended reward components via
+`cmedalign.rewards.judge_scorer` (unit-tested with mocked API responses; the live judge
+model defaults to the already-verified-working DEEPSEEK_V4_PRO alias, swappable via
+env var, see `_reward_judge_client()` below). What's still a TODO: this hasn't been
+exercised against a *real* rollout yet (needs the GPU/vLLM side), and the judge prompt
+hasn't been calibrated against real transcripts or a second judge — see
+`scripts/calibrate_reward_judge.py` for the sampling-based cross-judge calibration
+check, which should be run once real episodes exist, before trusting this judge's
+scores for actual training.
 
 Reference implementation this was written against:
 vendor/OpenRLHF/examples/python/agent_func_openai_server_executor.py (see
@@ -26,7 +30,8 @@ Usage (once wired to a real training run):
     --train.agent_func_path src/cmedalign/agents/openrlhf_agent_func.py
     (plus env vars: CMEDALIGN_PROFILES_PATH, PATIENT_SIM_BASE_URL, PATIENT_SIM_API_KEY,
     PATIENT_SIM_MODEL — the frozen patient simulator is served as its own
-    OpenAI-compatible endpoint, e.g. a separate vLLM instance for Qwen2.5-7B-Instruct)
+    OpenAI-compatible endpoint, e.g. a separate vLLM instance for Qwen2.5-7B-Instruct;
+    optionally CMEDALIGN_REWARD_JUDGE_ALIAS to override the default DEEPSEEK_V4_PRO judge)
 """
 from __future__ import annotations
 
@@ -37,8 +42,9 @@ from typing import Optional
 
 from cmedalign.agents.patient import build_patient_visible_profile
 from cmedalign.data.schemas import Message, PatientProfile
-from cmedalign.eval.api_adapter import EndpointConfig, OpenAICompatibleClient
+from cmedalign.eval.api_adapter import EndpointConfig, OpenAICompatibleClient, load_endpoint_config
 from cmedalign.rewards.components import EpisodeFeatures, total_reward
+from cmedalign.rewards.judge_scorer import score_episode_with_judge
 
 FINAL_MARKER = "FINAL:"
 
@@ -78,6 +84,16 @@ def _patient_client() -> OpenAICompatibleClient:
     return OpenAICompatibleClient(cfg, cache_dir=Path("artifacts/logs/patient_sim_cache"))
 
 
+def _reward_judge_client() -> OpenAICompatibleClient:
+    # Default judge is DEEPSEEK_V4_PRO because it's the one alias already confirmed
+    # working end-to-end (see STATUS.md 2026-07-19). Override via
+    # CMEDALIGN_REWARD_JUDGE_ALIAS once real Claude/GPT *API* credentials (not a
+    # ChatGPT/Claude.ai subscription -- see module docstring) are configured.
+    alias = os.environ.get("CMEDALIGN_REWARD_JUDGE_ALIAS", "DEEPSEEK_V4_PRO")
+    cfg = load_endpoint_config(alias)
+    return OpenAICompatibleClient(cfg, cache_dir=Path("artifacts/logs/reward_judge_cache"))
+
+
 def _patient_system_prompt(visible_profile: dict) -> str:
     # Deliberately does NOT include target_assessment/acceptable_actions/forbidden_claims/
     # required_info weights -- see cmedalign.agents.patient.PATIENT_VISIBLE_FIELDS.
@@ -90,29 +106,38 @@ def _patient_system_prompt(visible_profile: dict) -> str:
 
 
 def _score_episode(profile: PatientProfile, history: list[Message], revealed_info: set[str], num_turns: int, turn_budget: int) -> EpisodeFeatures:
-    """TODO(real compute needed): clinical_correctness / safety_score / process_score /
-    communication_score should come from a frozen LLM judge scoring the completed
-    transcript against the hidden profile's rubric (main.tex §Reward design). Not
-    implemented here -- placeholder mid-scale values so the reward function and episode
-    loop are at least exercisable/testable end-to-end before that judge is built and
-    calibrated. DO NOT use these placeholder scores for any real training run.
+    """clinical_correctness/safety_score/process_score/communication_score now come from
+    a real LLM judge call (cmedalign.rewards.judge_scorer), not a placeholder — but this
+    judge has NOT yet been exercised against a real rollout (needs GPU/vLLM) or
+    calibrated against a second judge (see scripts/calibrate_reward_judge.py). Treat
+    scores from this as provisional until that calibration has actually run.
     """
     weighted_total = sum(item.weight for item in profile.required_info)
     revealed_weight = sum(item.weight for item in profile.required_info if item.item in revealed_info)
     info_coverage = (revealed_weight / weighted_total) if weighted_total else 0.0
 
+    judge_client = _reward_judge_client()
+    judge_scores = score_episode_with_judge(judge_client, profile, history)
+
+    # Heuristic: a red flag counts as "handled" only if it also appears verbatim among
+    # the revealed required_info items (this assumes red-flag descriptions are also
+    # listed as required_info items in profile construction, which is the convention
+    # used in this project's test fixtures -- re-verify against real GRPO profiles once
+    # they're built, this is not yet validated against real data).
+    red_flag_missed = any(rf not in revealed_info for rf in profile.red_flags)
+
     return EpisodeFeatures(
-        clinical_correctness=0.5,  # TODO: replace with judge score
+        clinical_correctness=judge_scores.clinical_correctness,
         info_coverage=info_coverage,  # real, computed from revealed required_info
-        safety_score=0.5,  # TODO: replace with judge score
-        process_score=0.5,  # TODO: replace with judge score
-        communication_score=0.5,  # TODO: replace with judge score
+        safety_score=judge_scores.safety_score,
+        process_score=judge_scores.process_score,
+        communication_score=judge_scores.communication_score,
         num_turns=num_turns,
         turn_budget=turn_budget,
         response_length_tokens=sum(len(m.content) for m in history if m.role == "assistant"),
-        length_budget=2000,  # TODO: freeze from training-only dev tuning, see main.tex Table hyper
-        red_flag_missed=False,  # TODO: real check against profile.red_flags vs revealed_info
-        role_leakage=False,  # TODO: real check, see cmedalign.agents.patient leak detection
+        length_budget=int(os.environ.get("CMEDALIGN_LENGTH_BUDGET", "2000")),  # TODO: freeze from training-only dev tuning, see main.tex Table hyper
+        red_flag_missed=red_flag_missed,  # heuristic: red-flag string not among revealed_info items; refine once real profiles exist
+        role_leakage=False,  # TODO: wire in cmedalign.agents.patient's leak-detection check against the doctor's own turns
     )
 
 

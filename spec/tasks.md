@@ -42,25 +42,53 @@ section for the full reasoning. Two decisions that change prior assumptions:
       own audit found). The `internal_seed_flywheel`/`derived_from_seed` PII question is
       **resolved** (fully synthetic, no real patient data — see `BLOCKERS.md` and
       `cmedalign_paper/SOURCE_AUDIT.md` §6b) and both are imported and license-cleared as
-      `proprietary-own-synthetic-data`. **New finding**: `med_zh_real` (58,038 records,
-      the single largest source) has `license_id: unknown` in the source data — this is
-      a genuinely different (licensing, not privacy) blocker, quarantined to
-      `data/quarantine/rlhf_lab_cloud_kit/med_zh_real.jsonl`, not in `data/raw/`. See
-      `BLOCKERS.md` — waiting on user to clarify its actual provenance.
+      `proprietary-own-synthetic-data`. **`med_zh_real`** (58,038 records, the single
+      largest source) has `license_id: unknown` in the source data — content-quality
+      audited 2026-07-19 (0% ad/PII/dangerous-advice regex hits, 0.03% unhedged-
+      diagnosis hits, 6 records manually read in full, all clinically sensible; ~2.5%
+      show "作为智能助手..." boilerplate suggesting partial AI-generated origin) and
+      **authorized by the user to use now** pending exact source confirmation (see
+      `BLOCKERS.md` Reminders — not fully resolved, just unblocked; follow up once the
+      user confirms which open dataset this actually is, then backfill the license
+      ledger + `main.tex` data table with the real citation). Moved from quarantine
+      into `data/raw/rlhf_lab_cloud_kit/`.
 - [x] Read `FIGURE_SPECIFICATIONS.md` and `SOURCE_AUDIT.md` in full — **done 2026-07-19**.
-- [ ] Reconcile `src/cmedalign/stats/` and `src/cmedalign/eval/human_pack.py`'s generic
-      schemas against `RESULTS_AND_TABLE_SCHEMA.md`'s exact contract (`results/`,
-      `tables/`, `figures/`, `human_eval/` directory layout; the exact `statistics.json`
-      per-comparison fields; `table_main_universal.csv`/`table_stage_ablation.csv`/
-      `table_human.csv` exact columns) — the generic utilities are still useful
-      primitives underneath, but the actual output files must match this schema exactly,
-      not an ad-hoc one. **Still not done** — the single largest remaining pre-rental
-      documentation/code task.
-- [ ] `human_pack.py`'s rating rubric content must be copied verbatim from
-      `HUMAN_EVALUATION_PROTOCOL.md` §8 (the five 1-5 dimension anchors) — not invented
-      generically. Missing deliverables per that protocol: `assignment.csv` (rater-ID to
-      case-bundle assignment), `ratings_raw/`, `ratings_anonymized.csv`,
-      `human_statistics.json`, `protocol_deviations.md`. **Still not done.**
+- [x] **Done 2026-07-19** — Reconciled `src/cmedalign/stats/` and
+      `eval/human_pack.py` against `RESULTS_AND_TABLE_SCHEMA.md`'s exact contract:
+      - `src/cmedalign/schema/results_layout.py`: canonical `results/`/`tables/`/
+        `figures/`/`human_eval/` directory contract (exact filenames from the spec) +
+        `ensure_results_layout()` (scaffolds dirs, doesn't fabricate files) +
+        `validate_identity_fields()` (checks the required identity-field list, core +
+        API-specific).
+      - `src/cmedalign/schema/records.py`: pydantic models matching the spec exactly --
+        `StatisticsEntry` (the precise `comparison_id/model_a/model_b/.../seed` schema,
+        with `require_complete()` enforcing "fails when n_cases/estimate/CI/p_holm/
+        subset_id are absent for a primary claim" as actual code, not just prose),
+        `TableMainRow` (exact `table_main_universal.csv` columns, validates
+        percentages in [0,100] and CI brackets the point estimate),
+        `StageAblationRow` (M0-M3 only), `HumanTableRow`, `ErrorAdjudicationRecord`
+        (the 9 fixed error categories from FIGURE_SPECIFICATIONS.md Figure 5).
+      - `src/cmedalign/stats/build_tables.py`: real builder functions
+        (`build_table_main`, `build_stage_ablation`, `build_human_table`) that take
+        item-level records and produce schema-conformant rows, including correct
+        lower-is-better metric orientation for `mean_rank` (safety_violation). Backs
+        the `make statistics` Makefile target. All tested against synthetic
+        item-level fixtures (18 new tests across `test_results_schema.py` +
+        `test_build_tables.py`), not just imported.
+      - Still needed once real results exist: actually wiring `eval-core`/`eval-baselines`
+        to write `results/benchmark_item_scores.jsonl` etc. in the first place — the
+        builders are ready to consume that format, but nothing produces it yet (no
+        training/eval has run).
+- [x] **Done 2026-07-19** — `human_pack.py` now has `RATING_DIMENSIONS` (the five
+      1-5 dimension anchors copied verbatim from `HUMAN_EVALUATION_PROTOCOL.md` §8,
+      not paraphrased) + `build_rating_schema()` (produces `rating_schema.json` incl.
+      the §9 extra fields and §15 verbatim opening text) + `build_rater_assignment()`/
+      `write_rater_assignment_csv()` (produces `assignment.csv`: every case gets >=2
+      independent raters, 25% get a 3rd for reliability, per §7, deterministic,
+      load-balanced). Still missing: `ratings_raw/`, `ratings_anonymized.csv` writer,
+      `human_statistics.json` (needs ordinal Krippendorff's alpha — not yet
+      implemented, no library for it is installed; would need either a manual
+      implementation or adding a dependency), `protocol_deviations.md` template.
 - [x] Data cleaning tooling switched to **data-juicer** per user instruction
       (2026-07-19) instead of hand-written regex scripts. Wrote
       `configs/data/data_juicer_sft.yaml` (adapted from rlhf_lab_cloud_kit's own
@@ -68,10 +96,12 @@ section for the full reasoning. Two decisions that change prior assumptions:
       `scripts/data_juicer/{flatten_for_dj,rejoin_after_dj,dj_run}.py` (flatten
       messages->single text field for data-juicer's filters/dedup to score, map its
       keep/drop decision back onto the original structured record — never let
-      data-juicer's text-level mappers rewrite message content directly). **Not yet
-      installed/run** — data-juicer itself isn't installed anywhere yet (see
-      `ENVIRONMENTS.md`); this is designed and ready to run once there's a
-      `cmedalign-clean` env.
+      data-juicer's text-level mappers rewrite message content directly). User confirmed
+      (2026-07-19) the imported rlhf_lab_cloud_kit data was already processed with
+      data-juicer previously -- this config is for cmedalign's *own* pipeline going
+      forward, not a re-clean of already-processed data. **Not yet
+      installed/run here** — data-juicer itself isn't installed anywhere yet (see
+      `ENVIRONMENTS.md`); user confirmed no rush, install/run on the server, not now.
 - [x] **Two-conda-env split planned** (`ENVIRONMENTS.md`, per user instruction that
       cleaning and training likely need separate environments, especially once on a real
       server): `.venv` (this machine, dev/test), `cmedalign-clean` (data-juicer),
@@ -81,11 +111,26 @@ section for the full reasoning. Two decisions that change prior assumptions:
       matching the real `AgentExecutor.run_agent()` interface from
       `vendor/OpenRLHF/examples/python/agent_func_openai_server_executor.py`. Implements
       the doctor<->patient multi-turn loop and the deterministic reward piece
-      (`info_coverage`, from real revealed-required-info tracking). **Explicitly
-      TODO, not forgotten**: the clinical/safety/process/communication reward components
-      need a real frozen LLM judge with case-specific rubrics (main.tex's own wording) —
-      placeholder 0.5 scores are wired in and clearly marked; building/calibrating that
-      judge is deferred to when there's real compute to test it against, not guessed now.
+      (`info_coverage`, from real revealed-required-info tracking).
+- [x] **Done 2026-07-19** — reward judge implemented for real (was a placeholder):
+      `src/cmedalign/rewards/judge_scorer.py` calls a real LLM judge (default
+      `DEEPSEEK_V4_PRO`, swappable via `CMEDALIGN_REWARD_JUDGE_ALIAS`) with a prompt
+      built from the exact reward-component rubric table in `main.tex`'s appendix
+      (verbatim, not paraphrased), parses clinical/safety/process/communication scores,
+      falls back to a flagged neutral score (not a crash) on unparseable judge output.
+      3 unit tests with mocked API responses. Wired into `openrlhf_agent_func.py`'s
+      `_score_episode`, replacing the old 0.5 placeholders; `red_flag_missed` also now
+      computed (heuristic: red-flag text must appear verbatim among revealed
+      required_info items -- re-verify against real GRPO profiles once built, not yet
+      validated against real data). Important practical note recorded here and in the
+      module docstring: a ChatGPT/Claude.ai *subscription* (web UI / Codex access) is
+      NOT the same as *API access* -- automated per-rollout scoring needs a real,
+      metered API key, which only exists today for DeepSeek/MiniMax.
+      `scripts/calibrate_reward_judge.py`: the "抽样检查" cross-judge calibration script
+      (re-scores a sample of saved episodes with a second judge, reports per-component
+      Spearman correlation) -- matches the paper's own "at least two judge families,
+      report consensus/correlation" requirement, without needing every rollout scored
+      twice. **Still not run for real** (no real episodes exist yet, needs GPU/vLLM).
 - [x] Downloaded official **CMtMedQA** train (`Suprit/CMtMedQA`, MIT, 68,023 records) and
       **held-out test** (`Suprit/CMtMedQA_test_v1`, apache-2.0, exactly 1,000 records —
       matches `main.tex` Table 1's stated count, cross-validated). Converted via

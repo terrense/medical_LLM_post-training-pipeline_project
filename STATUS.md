@@ -271,4 +271,61 @@ MinHash 近似去重污染检查）在导入的 92,599 条数据（train 90,231 
   的精确输出格式跟 `src/cmedalign/stats/`、`eval/human_pack.py` 的对齐（已读完这三份
   文件，但还没动代码去对齐）
 - data-juicer 实际安装验证
-- GRPO agent 骨架里的裁判打分逻辑（明确留到有真实算力时做，不是遗漏）
+- ~~GRPO agent 骨架里的裁判打分逻辑~~ **已完成，见下一条日志**
+
+### 2026-07-19（第四轮）— med_zh_real 解禁+内容审查；裁判模型接上；结果格式对齐真正做完
+
+**data-juicer**：用户确认这批 rlhf_lab_cloud_kit 数据之前就已经用 data-juicer 处理过，
+我们自己的 `configs/data/data_juicer_sft.yaml` 是给 cmedalign 自己以后的数据用的，
+不是重新清洗已处理过的数据。用户说不急，服务器上再装/跑，本轮没有动作，只是确认理解一致。
+
+**med_zh_real 解禁**：用户说这是某个开源数据集（具体哪个暂时想不起来，会去另一台电脑翻
+下载记录确认），让我先正常用，但要求"你要审查"。做了真正的内容审查，不是走过场：
+- 正则扫描 58,038 条：广告/PII/危险用药建议命中率 0%，无保留断言诊断（"肯定是/一定是"
+  这类）命中率 0.03%
+- 人工完整读了 6 条随机抽样的对话，内容合理、有恰当保留（建议就医、不给绝对诊断）
+- **一个值得记住的发现**：约 2.5%（1,459/58,038）的回答含"作为智能助手，我不能提供
+  具体医疗建议"这类样板话术，说明这批数据里至少一部分回答本身是 AI 生成的，不全是
+  真人医生历史问诊——等确认具体来源后，论文里要如实反映这一点，不能笼统写成人类医生
+  数据。审查结论：内容质量可以接受，已从 quarantine 移回 `data/raw/`，license_ledger
+  标记 `unknown_but_authorized`，`BLOCKERS.md` 挪到 Reminders（不是阻塞，是提醒后续
+  跟进补全溯源）。
+
+**裁判模型接上了，不再是占位符**：用户问"能打分的裁判模型，你行不行？Fable/Opus-4.8
+或者 GPT-5.6"。回复了一个关键区别：ChatGPT/Claude.ai 的**会员订阅**（网页版/Codex）
+跟**API 访问**是两回事——自动给每个 GRPO rollout 打分需要能被训练代码程序调用的、
+按量计费的 API key，不是订阅。目前只有 DeepSeek/MiniMax 有真实可用的 API key。
+做法：写了 `src/cmedalign/rewards/judge_scorer.py`，用真实裁判模型调用（默认
+DEEPSEEK_V4_PRO，可通过环境变量换成任何配置好的 API，包括以后如果办了 Claude/GPT
+的 API key），prompt 直接用 `main.tex` 附录里那张奖励分量评分表的原文（一字不改），
+解析 JSON 打分，解析失败时给中性占位分并标记状态而不是崩溃。接入
+`openrlhf_agent_func.py` 替换掉之前的 0.5 占位符。另外按用户说的"抽样检查"思路写了
+`scripts/calibrate_reward_judge.py`：不需要给每条 rollout 都双重打分，只需要定期抽样
+用第二个裁判模型重新打分，算 Spearman 相关性，对应论文自己要求的"至少两个裁判家族
++报告一致性"。**这些代码本地测试都过了（mock API），但还没在真实 rollout 上跑过**，
+需要真实 GPU/vLLM 环境才能验证。
+
+**结果输出格式对齐——真正做完了，不再只是"读过文档"**：新建
+`src/cmedalign/schema/{results_layout,records}.py`：把 `RESULTS_AND_TABLE_SCHEMA.md`
+里的目录结构、身份字段清单、`statistics.json` 精确 schema、三张主表
+（table_main_universal/table_stage_ablation/table_human）的精确列名，全部写成
+pydantic 模型+校验规则（百分比必须在 0-100 之间、CI 必须包住点估计、安全违规这类
+"越低越好"指标在算排名前必须先转向等），不是文档里抄一遍就完事，是真的写了会报错的
+校验代码。新建 `src/cmedalign/stats/build_tables.py` 实现三张主表的真实构建函数
+（从 item-level 记录聚合成这些精确格式），配了 18 条新单元测试（用构造的假数据验证
+聚合、排名方向、schema 校验全部正确）。`human_pack.py` 加了 `RATING_DIMENSIONS`
+（五维度评分锚点，从 `HUMAN_EVALUATION_PROTOCOL.md` §8 原文一字不改抄过来）、
+`build_rating_schema()`、`build_rater_assignment()`/`write_rater_assignment_csv()`
+（补上了之前缺的 `assignment.csv` 交付物：每个病例至少 2 名独立评价者，25% 病例
+额外配第 3 名做可靠性估计，负载均衡，确定性可复现）。顺手修了一个之前测试里的
+flaky bug（`test_blind_map_roundtrips_through_encryption` 用 "M0" 这种 2 字符去查
+base64 密文，本身就有几个百分点的偶然命中概率，已经改成只查更长的字符串）。
+全部 122 个测试通过（新增 22 条：3 judge_scorer + 11 results_schema + 4 build_tables
++ 4 human_pack assignment）。
+
+**还没做的**（老实列）：`human_statistics.json` 需要的 ordinal Krippendorff's alpha
+还没实现（没装相关库，需要手写或加依赖）；`ratings_raw/`、`ratings_anonymized.csv`
+写入函数、`protocol_deviations.md` 模板还没写；`eval-core`/`eval-baselines` 还没有
+真正产出 `results/benchmark_item_scores.jsonl` 这类 item-level 文件（因为还没有真实
+训练/评测跑起来，构建函数已经就绪，等真实数据）；MedDG（找到在 GitHub 但没查到
+license）、IMCS-21（还没定位）仍未下载。

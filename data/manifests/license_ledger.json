@@ -72,12 +72,12 @@
   "med_zh_real@rlhf_lab_cloud_kit_v1.1_05_final": {
     "source": "med_zh_real",
     "revision": "rlhf_lab_cloud_kit_v1.1_05_final",
-    "license_id": "unknown",
-    "license_status": "unclear",
+    "license_id": "unknown_but_authorized",
+    "license_status": "cleared",
     "url": null,
-    "retrieved_at": "2026-07-19T14:47:04.917542+00:00",
+    "retrieved_at": "2026-07-19T15:24:50.428751+00:00",
     "raw_file_sha256": "see_data/raw/rlhf_lab_cloud_kit/*.jsonl_per-record_hashes",
-    "notes": "58,038 records, largest single source. rlhf_lab_cloud_kit docs describe it only as sourced from the user local drive with no recorded license. This is a LICENSE question (distinct from the already-resolved privacy question) -- quarantined pending user clarification, see BLOCKERS.md."
+    "notes": "AUTHORIZED FOR USE by data owner 2026-07-19 pending exact source confirmation (user states it is an open-source dataset, will confirm exact name/link from download records within 1-2 days -- REMINDER: follow up and fill in exact provenance for the paper once confirmed, do not forget this). Content quality audit passed 2026-07-19: 0%% ad/PII/dangerous-advice regex hits, 0.03%% flagged for unhedged definitive-diagnosis language, manual sample of 6 records read in full -- sensible, appropriately hedged medical Q&A. Note: ~2.5%% (1,459/58,038) of records contain \"作为智能助手...\"-style boilerplate suggesting a portion of answers may themselves be AI-generated rather than human-authored -- worth reflecting accurately once true provenance is confirmed."
   },
   "CMtMedQA@Suprit/CMtMedQA": {
     "source": "CMtMedQA",

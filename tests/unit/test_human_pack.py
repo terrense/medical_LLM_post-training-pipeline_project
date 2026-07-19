@@ -3,8 +3,11 @@ import json
 import pytest
 
 from cmedalign.eval.human_pack import (
+    RATING_DIMENSIONS,
     build_blind_assignment,
     build_blinded_cases,
+    build_rater_assignment,
+    build_rating_schema,
     decrypt_blind_map,
     encrypt_blind_map,
     generate_encryption_key,
@@ -12,6 +15,7 @@ from cmedalign.eval.human_pack import (
     strip_thinking_trace,
     write_blinded_cases_jsonl,
     write_encrypted_blind_map,
+    write_rater_assignment_csv,
 )
 
 SYSTEMS = ["M0", "M1", "M2", "M3", "baseline-72B"]
@@ -104,8 +108,12 @@ def test_blind_map_roundtrips_through_encryption(tmp_path):
     write_encrypted_blind_map(assignment, key, path)
 
     raw_bytes = path.read_bytes()
-    # ciphertext must not contain plaintext system names
-    assert b"M0" not in raw_bytes and b"baseline-72B" not in raw_bytes
+    # Ciphertext must not contain plaintext system names. Use a long, distinctive name
+    # only -- short 2-char names like "M0" have a non-negligible chance of appearing
+    # coincidentally in a ~200-char base64 ciphertext blob (base64 alphabet includes
+    # both 'M' and '0'), which made this assertion flaky; "baseline-72B" is long enough
+    # that a coincidental match is negligible.
+    assert b"baseline-72B" not in raw_bytes
 
     recovered = decrypt_blind_map(raw_bytes, key)
     assert recovered == assignment
@@ -121,3 +129,54 @@ def test_blind_map_wrong_key_fails_to_decrypt(tmp_path):
 
     with pytest.raises(InvalidToken):
         decrypt_blind_map(token, wrong_key)
+
+
+def test_rating_schema_has_all_five_verbatim_dimensions():
+    schema = build_rating_schema()
+    assert set(schema["dimensions"].keys()) == set(RATING_DIMENSIONS.keys())
+    assert set(RATING_DIMENSIONS.keys()) == {
+        "clinical_correctness", "inquiry_quality", "safety", "actionability", "communication",
+    }
+    # every dimension has all 5 ordinal anchors, 1-5
+    for dim in schema["dimensions"].values():
+        assert set(dim["anchors"].keys()) == {1, 2, 3, 4, 5}
+
+
+def test_rater_assignment_every_case_gets_at_least_two_raters():
+    case_ids = _case_ids(80)
+    raters = ["r1", "r2", "r3", "r4", "r5"]
+    rows = build_rater_assignment(case_ids, raters, third_rater_fraction=0.25, seed=1)
+
+    by_case: dict[str, list[str]] = {}
+    for row in rows:
+        by_case.setdefault(row.case_id, []).append(row.rater_id)
+
+    assert set(by_case.keys()) == set(case_ids)
+    for case_id, assigned in by_case.items():
+        assert len(assigned) in (2, 3)
+        assert len(set(assigned)) == len(assigned)  # no rater assigned twice to same case
+
+    n_triple = sum(1 for assigned in by_case.values() if len(assigned) == 3)
+    assert n_triple == 20  # 25% of 80
+
+
+def test_rater_assignment_is_deterministic():
+    case_ids = _case_ids(20)
+    raters = ["r1", "r2", "r3"]
+    a = build_rater_assignment(case_ids, raters, seed=42)
+    b = build_rater_assignment(case_ids, raters, seed=42)
+    assert a == b
+
+
+def test_rater_assignment_requires_at_least_two_raters():
+    with pytest.raises(ValueError):
+        build_rater_assignment(_case_ids(5), ["only_one"])
+
+
+def test_write_rater_assignment_csv(tmp_path):
+    rows = build_rater_assignment(_case_ids(10), ["r1", "r2", "r3"], seed=1)
+    path = tmp_path / "assignment.csv"
+    write_rater_assignment_csv(rows, path)
+    lines = path.read_text(encoding="utf-8").strip().split("\n")
+    assert lines[0] == "rater_id,case_id,is_third_reliability_rater"
+    assert len(lines) - 1 == len(rows)
