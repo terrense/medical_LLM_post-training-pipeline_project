@@ -34,25 +34,82 @@ section for the full reasoning. Two decisions that change prior assumptions:
       explicitly **out of scope** for this paper (removed 2026-07-19). Don't build these
       even though `rlhf_lab_cloud_kit`'s separate SFT-rigor checklist calls for them —
       that checklist is generic SFT hygiene, not this paper's contribution.
-- [ ] `rlhf_lab_cloud_kit` is now historical/frozen (no new training runs there); pull in
-      its reusable assets (task_type-tagged data, cleaning/dedup logic, locked LoRA
-      rank/alpha, DPO dual-judge pattern) per the exact list in `spec/design.md` — do NOT
-      pull in `internal_seed_flywheel`/`derived_from_seed` until
-      `rlhf_lab_cloud_kit/BLOCKERS.md` #1 (PII status) is resolved.
-- [ ] Read `FIGURE_SPECIFICATIONS.md` and `SOURCE_AUDIT.md` in full (not yet done as of
-      2026-07-19) before starting any figure-generation or citation-control work.
+- [x] ~~`rlhf_lab_cloud_kit` is now historical/frozen; pull in its reusable assets~~ —
+      **done 2026-07-19**: `scripts/import_rlhf_lab_cloud_kit.py` imported 150,637
+      records into `data/raw/rlhf_lab_cloud_kit/` (split by source), converted to
+      `ConversationRecord` schema (150,635/150,637 pass validation — 2 known
+      consecutive-same-role records from `DISC-Med-SFT`, same ones rlhf_lab_cloud_kit's
+      own audit found). The `internal_seed_flywheel`/`derived_from_seed` PII question is
+      **resolved** (fully synthetic, no real patient data — see `BLOCKERS.md` and
+      `cmedalign_paper/SOURCE_AUDIT.md` §6b) and both are imported and license-cleared as
+      `proprietary-own-synthetic-data`. **New finding**: `med_zh_real` (58,038 records,
+      the single largest source) has `license_id: unknown` in the source data — this is
+      a genuinely different (licensing, not privacy) blocker, quarantined to
+      `data/quarantine/rlhf_lab_cloud_kit/med_zh_real.jsonl`, not in `data/raw/`. See
+      `BLOCKERS.md` — waiting on user to clarify its actual provenance.
+- [x] Read `FIGURE_SPECIFICATIONS.md` and `SOURCE_AUDIT.md` in full — **done 2026-07-19**.
 - [ ] Reconcile `src/cmedalign/stats/` and `src/cmedalign/eval/human_pack.py`'s generic
       schemas against `RESULTS_AND_TABLE_SCHEMA.md`'s exact contract (`results/`,
       `tables/`, `figures/`, `human_eval/` directory layout; the exact `statistics.json`
       per-comparison fields; `table_main_universal.csv`/`table_stage_ablation.csv`/
       `table_human.csv` exact columns) — the generic utilities are still useful
       primitives underneath, but the actual output files must match this schema exactly,
-      not an ad-hoc one. Not yet done.
+      not an ad-hoc one. **Still not done** — the single largest remaining pre-rental
+      documentation/code task.
 - [ ] `human_pack.py`'s rating rubric content must be copied verbatim from
       `HUMAN_EVALUATION_PROTOCOL.md` §8 (the five 1-5 dimension anchors) — not invented
       generically. Missing deliverables per that protocol: `assignment.csv` (rater-ID to
       case-bundle assignment), `ratings_raw/`, `ratings_anonymized.csv`,
-      `human_statistics.json`, `protocol_deviations.md`.
+      `human_statistics.json`, `protocol_deviations.md`. **Still not done.**
+- [x] Data cleaning tooling switched to **data-juicer** per user instruction
+      (2026-07-19) instead of hand-written regex scripts. Wrote
+      `configs/data/data_juicer_sft.yaml` (adapted from rlhf_lab_cloud_kit's own
+      validated `dj_med_config.yaml` operator names) +
+      `scripts/data_juicer/{flatten_for_dj,rejoin_after_dj,dj_run}.py` (flatten
+      messages->single text field for data-juicer's filters/dedup to score, map its
+      keep/drop decision back onto the original structured record — never let
+      data-juicer's text-level mappers rewrite message content directly). **Not yet
+      installed/run** — data-juicer itself isn't installed anywhere yet (see
+      `ENVIRONMENTS.md`); this is designed and ready to run once there's a
+      `cmedalign-clean` env.
+- [x] **Two-conda-env split planned** (`ENVIRONMENTS.md`, per user instruction that
+      cleaning and training likely need separate environments, especially once on a real
+      server): `.venv` (this machine, dev/test), `cmedalign-clean` (data-juicer),
+      `cmedalign-train` (torch/vLLM/DeepSpeed/OpenRLHF). `Makefile` targets updated to
+      `conda run -n <env>` accordingly. Actual env creation happens on the GPU server.
+- [x] GRPO `agent_func_path` scaffold written: `src/cmedalign/agents/openrlhf_agent_func.py`,
+      matching the real `AgentExecutor.run_agent()` interface from
+      `vendor/OpenRLHF/examples/python/agent_func_openai_server_executor.py`. Implements
+      the doctor<->patient multi-turn loop and the deterministic reward piece
+      (`info_coverage`, from real revealed-required-info tracking). **Explicitly
+      TODO, not forgotten**: the clinical/safety/process/communication reward components
+      need a real frozen LLM judge with case-specific rubrics (main.tex's own wording) —
+      placeholder 0.5 scores are wired in and clearly marked; building/calibrating that
+      judge is deferred to when there's real compute to test it against, not guessed now.
+- [x] Downloaded official **CMtMedQA** train (`Suprit/CMtMedQA`, MIT, 68,023 records) and
+      **held-out test** (`Suprit/CMtMedQA_test_v1`, apache-2.0, exactly 1,000 records —
+      matches `main.tex` Table 1's stated count, cross-validated). Converted via
+      `scripts/import_cmtmedqa.py`, both pass schema validation (69,023/69,023). Test
+      split stored in a deliberately obvious `data/raw/cmtmedqa_test_HELD_OUT/` directory
+      name so it can't be accidentally swept into a training glob later.
+- [ ] **MedDG and IMCS-21 (both named explicitly in `main.tex` Table 1) not found on
+      HuggingFace** via search — likely GitHub-hosted, not yet located/downloaded. Still
+      to do.
+- [x] `make data-audit` finished: **G1 = FAIL** (this is useful, real information, not a
+      failure of the tooling). No exact duplicates in train, no train/test contamination
+      (no test set loaded yet), but **732 train<->dev near-duplicate pairs found**, nearly
+      all involving `derived_from_seed` "summary" records
+      (`rlck_drv_summary_synthetic_diag_pipeline_...`). This is exactly the patient/
+      case-level split risk flagged earlier: synthetic case-derived rewrites of the same
+      underlying case appear to have been split across train and dev independently
+      instead of staying together. **Needs a real fix**: either re-split
+      `derived_from_seed` at the case/pipeline-run level before re-importing, or exclude
+      it from `dev`/`test` construction entirely until re-split. Not yet fixed — noted
+      here rather than silently worked around. Full report: `artifacts/audits/data_audit.json`.
+- [ ] MedDG located on GitHub (`github.com/lwgkzl/MedDG`) but **no LICENSE file detected**
+      via the GitHub API — same "unclear license" situation as `med_zh_real`, would need
+      quarantine treatment unless the paper/repo states usage terms elsewhere (not yet
+      checked). IMCS-21's GitHub location not yet located. Neither downloaded.
 
 ---
 

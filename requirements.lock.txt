@@ -69,3 +69,15 @@ urllib3==2.7.0
 # ray==<TBD, needed for OpenRLHF's train_ppo_ray.py>
 # flash-attn==<TBD, must match torch/CUDA ABI exactly, prebuilt wheel per GPU arch>
 # -e vendor/OpenRLHF (pinned checkout, tag v0.10.4)
+
+# ============================================================================
+# SECTION 3 -- `cmedalign-clean` conda env (data-juicer, see ENVIRONMENTS.md).
+# Deliberately a SEPARATE env from Section 2's training stack -- data-juicer's
+# own dependency pins (pandas/numpy versions, its lightweight scoring models)
+# have a history of conflicting with OpenRLHF/vLLM/DeepSpeed's torch/CUDA
+# requirements when installed together. NOT YET VERIFIED (no GPU machine to
+# install onto yet) -- re-pin exact versions once actually installed.
+# ============================================================================
+# py-data-juicer==<TBD, latest at install time>
+# (data-juicer pulls in its own pandas/numpy/etc.; do not force-pin those here
+#  ahead of time, let data-juicer's own resolver pick compatible versions)

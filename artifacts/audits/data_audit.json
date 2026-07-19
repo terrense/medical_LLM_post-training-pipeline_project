@@ -1,0 +1,3676 @@
+{
+  "counts": {
+    "train": 90231,
+    "dev": 2368,
+    "test": 0
+  },
+  "license_quarantined_sources": [
+    "med_zh_real@rlhf_lab_cloud_kit_v1.1_05_final"
+  ],
+  "exact_dup_in_train": {},
+  "train_test_contamination": [],
+  "train_dev_contamination": [
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0011761_18f3482d15",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0001010_4893b9ef8b",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0011909_74ae8b4e89",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0017846_67f02bae5f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0004317_89f3c14f2a",
+      "jaccard_estimate": 0.6171875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0013398_ac6b24a509",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0012337_b38c0b4be6",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0012727_ca6e7b17d7",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0018067_760adb180f",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0017846_67f02bae5f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0011817_5f0bcc2fbc",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0000007_4fd102422f",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0014655_846eaee127",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0002749_42b3ea758c",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0004272_f3cb94fce8",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006343_8c86956398",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0000522_457bb9846b",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0003288_93172beda9",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0007395_4b1216f90f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0003848_2c55feae2a",
+      "jaccard_estimate": 0.5859375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0013702_07803aebd0",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0013310_d900ef6fdd",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0014254_6361ec04ab",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0018674_458eab0e25",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0016807_8d721bd3bc",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0017069_b72b56784b",
+      "jaccard_estimate": 0.5625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0017672_0769301195",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006495_14e7ddb361",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0003504_c435f1d990",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0020084_1d5d359faf",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0019993_093b3ac622",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006990_6d8b030531",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0019638_a603f700cb",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0000142_ae77a7a638",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0017846_67f02bae5f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0009187_2d6d84302a",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0011132_17a220ef1b",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0010501_451df062ad",
+      "jaccard_estimate": 0.6484375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006422_69dd811f47",
+      "jaccard_estimate": 0.6640625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011605_b6f1c47d8c",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0007215_b3405073e2",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0014495_5b82220c32",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0004028_2bfc73aaf4",
+      "jaccard_estimate": 0.671875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0012749_851b5c9631",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001569_59660f93ef",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0001569_59660f93ef",
+      "jaccard_estimate": 0.6484375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0004364_162a8908fb",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006542_efb50288d1",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0013702_07803aebd0",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0007104_3ba82ed121",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0011990_01aaaa98fa",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0004021_aa21c634e4",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0018427_e54692d8d7",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0015429_23fa149591",
+      "jaccard_estimate": 0.609375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0012570_eb64e07174",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0020162_96d41b8e02",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0018261_3e87a05b19",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0008142_99c6ddde7f",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0000100_d117468606",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0018653_3503a06f7c",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0001138_f0d2ae0e7b",
+      "jaccard_estimate": 0.5703125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0012810_841268b081",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0003734_5585ce2507",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0013702_07803aebd0",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0007873_0a38a3d0f1",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0019993_093b3ac622",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0011043_88c2243660",
+      "jaccard_estimate": 0.6328125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0011822_822f195b2b",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0004298_80895fb0b7",
+      "jaccard_estimate": 0.5703125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0017043_0e62b8bcf1",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0007277_2b3378cc42",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0010348_980716a22b",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0013702_07803aebd0",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0005662_e7ec2ddefc",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0003866_e6810f3bb4",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0017846_67f02bae5f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006025_ad954d554e",
+      "jaccard_estimate": 0.6484375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006025_ad954d554e",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0002153_10cac83842",
+      "jaccard_estimate": 0.5078125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0019993_093b3ac622",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0005830_e6a4c1f722",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0011059_5098f95305",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0002799_8656d0a49e",
+      "jaccard_estimate": 0.6484375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0002567_c0a8e0b796",
+      "jaccard_estimate": 0.59375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0013132_0f876752de",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0007282_6b8210b7b1",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006972_654dd75d4a",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0003625_8f60767a6d",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0003074_371ce407c9",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0017231_5621d20efa",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0014372_9934008bff",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0002388_270785ec14",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0017846_67f02bae5f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0001453_816f6aaf44",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0009331_0a09c879b0",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0013407_d694ad2953",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0004364_162a8908fb",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0008204_5d4d827c0c",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0010170_e72671cdef",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0013702_07803aebd0",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0018717_922083bad0",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0018375_b3ae42070f",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0011055_131466010f",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006479_b0cf8b8352",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0019993_093b3ac622",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0001012_b9e970801d",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0010223_c3daa5c661",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0016602_e5bbde854b",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0006390_3493d572a8",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0004364_162a8908fb",
+      "match_id": "rlck_drv_summary_synthetic_diag_pipeline_0001649_c422761a98",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002322",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003983",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003940",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001348",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003806",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003761",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001466",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004148",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00000973",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00000677",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002440",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003736",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001223",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002248",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004263",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004042",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001089",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003780",
+      "jaccard_estimate": 0.5703125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001360",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002106",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004809",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002496",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003839",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002773",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002357",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003653",
+      "jaccard_estimate": 0.953125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004809",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003513",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001180",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003727",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001447",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003020",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002204",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003586",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002201",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003407",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002322",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001391",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003853",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002557",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001228",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001599",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002435",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001787",
+      "jaccard_estimate": 0.6640625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002276",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002458",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002721",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004017",
+      "jaccard_estimate": 0.90625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004268",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003890",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00000692",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00000604",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003606",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002776",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001223",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003725",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001447",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002277",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001466",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002938",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003978",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004441",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001180",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001225",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001327",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003134",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003606",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002310",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003216",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002899",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002037",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002455",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00000692",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00000308",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004809",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004669",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001228",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001134",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001813",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003850",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001089",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001233",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001360",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003029",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003940",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004858",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003978",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003746",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004149",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004280",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002276",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001626",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004809",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003236",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004809",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001387",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001396",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001160",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002204",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004796",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003606",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001615",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003251",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003528",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001583",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001220",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001583",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001484",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00000965",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00000781",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001466",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003490",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004809",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002586",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003539",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002067",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001583",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001118",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001089",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001178",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00000692",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00000156",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004809",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001571",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002201",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001036",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001666",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004169",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003978",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002820",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001223",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004698",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004973",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003083",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00000518",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00000486",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001228",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004693",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001875",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003171",
+      "jaccard_estimate": 0.921875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00003240",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00001720",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004973",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002470",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001813",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00004771",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004809",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00002077",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004973",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003588",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00002201",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003826",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00001583",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003710",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00000692",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00000052",
+      "jaccard_estimate": 0.671875
+    },
+    {
+      "query_id": "rlck_gen_hospital_policy_rag_qa_00004938",
+      "match_id": "rlck_gen_hospital_policy_rag_qa_00003642",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0010193_3c6a4820e9",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0001244_642e0c2e17",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0000490_19bdcc95fc",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010998_379ac477ff",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0018457_43ab9cf504",
+      "jaccard_estimate": 0.9140625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0018457_43ab9cf504",
+      "jaccard_estimate": 0.8984375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0011442_4cbb2230a0",
+      "match_id": "rlck_synthetic_diag_pipeline_0001981_bf4a697883",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0019724_b1e97f7d6f",
+      "match_id": "rlck_synthetic_diag_pipeline_0017916_1e86d726d4",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0003289_bc9b8715bc",
+      "jaccard_estimate": 0.5625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0008645_e44533eaea",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0008645_e44533eaea",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0003141_71cd9048aa",
+      "jaccard_estimate": 0.8984375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0003141_71cd9048aa",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0001142_c244e0e98d",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0001142_c244e0e98d",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0018655_d80500c1d7",
+      "match_id": "rlck_synthetic_diag_pipeline_0015423_a81292b755",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0002078_a560d312ab",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0002078_a560d312ab",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0008556_b68b5c293b",
+      "jaccard_estimate": 0.5390625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0004411_df1d84dae9",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0006949_3aa96ae764",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0008328_e3a23525d4",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0008328_e3a23525d4",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0018164_460f5dedc1",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0018164_460f5dedc1",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0012366_de13f061c0",
+      "jaccard_estimate": 0.640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0008379_7960e91cb6",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0015797_14f91823ab",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0010668_c72c86effa",
+      "jaccard_estimate": 0.6640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0010668_c72c86effa",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010409_96d8a7af2d",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0014220_708f9a5a54",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0009352_8a4ccd0a35",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0004129_36dba52c36",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0018910_356140fd89",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0013589_92ed1b73fa",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0017221_39faf4f7b1",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0017221_39faf4f7b1",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0002243_a7ffffbefd",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0009205_580580e9d8",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0009205_580580e9d8",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0007131_da04411a2a",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0004392_d637016db8",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0010076_b20bf3a5ff",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010285_033d2261be",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0017230_f92051ee8c",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0014927_4be732a758",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0005536_197e37fa85",
+      "match_id": "rlck_synthetic_diag_pipeline_0014927_4be732a758",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0017603_00a2cfa905",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0017603_00a2cfa905",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0017603_00a2cfa905",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0000760_6a21e81100",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0004272_f3cb94fce8",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0004272_f3cb94fce8",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0003940_3be532437f",
+      "jaccard_estimate": 0.90625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0003940_3be532437f",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0000641_c50d73b623",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0000641_c50d73b623",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0011062_bafdde9b73",
+      "match_id": "rlck_synthetic_diag_pipeline_0004154_2e47ac8dec",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0019048_31bf650a8f",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0019048_31bf650a8f",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0015134_8914de4837",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0000508_c64c40935a",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0011062_bafdde9b73",
+      "match_id": "rlck_synthetic_diag_pipeline_0008829_851e4ea072",
+      "jaccard_estimate": 0.6484375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0013172_00f575423a",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0016040_f780d0807b",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012013_406c0901c9",
+      "match_id": "rlck_synthetic_diag_pipeline_0010778_b2760fbfbd",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0002411_9162382116",
+      "match_id": "rlck_synthetic_diag_pipeline_0013096_7fc0e4ad19",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0009189_decf1fecb1",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0009189_decf1fecb1",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0016063_3478fcbb4d",
+      "jaccard_estimate": 0.90625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0014655_846eaee127",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0011276_0f7fbf974f",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0013411_801b8a2e9d",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0013411_801b8a2e9d",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014078_5533d7c39c",
+      "match_id": "rlck_synthetic_diag_pipeline_0005928_f3a05d7c67",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010091_e0f0b5f301",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0009187_2d6d84302a",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0009187_2d6d84302a",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0015669_404f74c89b",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0015669_404f74c89b",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0000136_04bbde8fe5",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0001518_5419a57db3",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0016479_a5ead16b61",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003560_7ad05ae996",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0018020_bab415134b",
+      "jaccard_estimate": 0.8984375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0007552_1cc6177297",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007575_70e59c44e8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003585_b50d437b8f",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0018948_53e4c1e3c8",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0004057_e355ee09cf",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0012988_c5cc2b277f",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0012988_c5cc2b277f",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0011761_18f3482d15",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0011761_18f3482d15",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0016885_73edf03133",
+      "jaccard_estimate": 0.6171875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0012916_80ae6c7e1f",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0012532_fe9e71e1da",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0017655_a10e45fb7c",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0008053_9ba36890fd",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0008053_9ba36890fd",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0008053_9ba36890fd",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0006725_5990b4163a",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0004232_e446f0ac94",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0001089_2e2bfd9600",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0001444_d4f69020f8",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0001444_d4f69020f8",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0001444_d4f69020f8",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0009150_3421b95d21",
+      "jaccard_estimate": 0.5234375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0006501_c57249a01c",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0006093_196e96f1b0",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000124_f880188da2",
+      "match_id": "rlck_synthetic_diag_pipeline_0006202_9ebe4b6ef5",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0007027_462456a692",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0011538_a802fe2140",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0002516_6feb88e3c7",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0010446_0bc136d7bf",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0011132_17a220ef1b",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0011132_17a220ef1b",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012780_3358048b26",
+      "match_id": "rlck_synthetic_diag_pipeline_0017151_1a86aab800",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0008941_e79f28fbe0",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004312_636b5d44d3",
+      "match_id": "rlck_synthetic_diag_pipeline_0006872_af749d2dab",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0013699_2af55bfc6a",
+      "match_id": "rlck_synthetic_diag_pipeline_0006872_af749d2dab",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0007667_f650ebfdba",
+      "jaccard_estimate": 0.6328125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0002749_42b3ea758c",
+      "match_id": "rlck_synthetic_diag_pipeline_0003992_d3d586faab",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0003992_d3d586faab",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0003992_d3d586faab",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0016080_50001bd5b5",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0007647_bd3e02d950",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0008417_0808551558",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0006694_483a2e7ad5",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0006694_483a2e7ad5",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0017386_cf6a892b8f",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0002605_d55595bd4a",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0005214_79e4117d6a",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0012965_df0ec67844",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0013882_d099c4dc5b",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0009842_2d27814b14",
+      "match_id": "rlck_synthetic_diag_pipeline_0005400_7318d59e75",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0005400_7318d59e75",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0012812_466809b0d6",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0012165_2b2ae1b9ec",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0012165_2b2ae1b9ec",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0009435_b19539d37e",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0012749_851b5c9631",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0003404_79b5560055",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0003404_79b5560055",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0020084_1d5d359faf",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0005536_197e37fa85",
+      "match_id": "rlck_synthetic_diag_pipeline_0004929_7b82d4b846",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0001010_4893b9ef8b",
+      "jaccard_estimate": 0.8984375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004312_636b5d44d3",
+      "match_id": "rlck_synthetic_diag_pipeline_0012726_10897d593f",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0011336_5bbe9e3f52",
+      "jaccard_estimate": 0.6171875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0000014_b7511b1527",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0000014_b7511b1527",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0012889_936d918e67",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0002296_afc7721696",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0019749_226c807391",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0011165_3a91408777",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0006664_ecc61c4726",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0012404_6a3ddc7703",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0012404_6a3ddc7703",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0010772_30379baadb",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0013343_8f1bd22481",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0005113_9e3c74ee50",
+      "jaccard_estimate": 0.9140625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0013699_2af55bfc6a",
+      "match_id": "rlck_synthetic_diag_pipeline_0014202_ae068e5485",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0014202_ae068e5485",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004312_636b5d44d3",
+      "match_id": "rlck_synthetic_diag_pipeline_0014202_ae068e5485",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0011062_bafdde9b73",
+      "match_id": "rlck_synthetic_diag_pipeline_0014861_f4fd0f4fe4",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004312_636b5d44d3",
+      "match_id": "rlck_synthetic_diag_pipeline_0014233_1a1fc0676d",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0001298_68b22ebd2d",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0009331_0a09c879b0",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0016639_327edffdf4",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0013987_3547e4259a",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0013987_3547e4259a",
+      "jaccard_estimate": 0.921875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0013987_3547e4259a",
+      "jaccard_estimate": 0.8984375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0011442_4cbb2230a0",
+      "match_id": "rlck_synthetic_diag_pipeline_0015578_424865a78c",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0019838_ae2b7e6c3e",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012013_406c0901c9",
+      "match_id": "rlck_synthetic_diag_pipeline_0001510_6bd2631c84",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000124_f880188da2",
+      "match_id": "rlck_synthetic_diag_pipeline_0015805_3e3f0849bd",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0006025_ad954d554e",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003205_37eaa0f28a",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0017188_92be0731c0",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0001165_95400bf027",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0001165_95400bf027",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0008996_4c836dc22b",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0012350_de98408bdf",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0012350_de98408bdf",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0002951_cc249f0698",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0002951_cc249f0698",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0004625_2cf850ad49",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0004625_2cf850ad49",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0006060_2c9442b6a2",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0012678_4df199b666",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000415_380a8a63b0",
+      "match_id": "rlck_synthetic_diag_pipeline_0019178_0e798be14a",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0019178_0e798be14a",
+      "jaccard_estimate": 0.5390625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0000481_151a69222b",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0002593_638e8dc4de",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0002593_638e8dc4de",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0003197_3e5f3a7480",
+      "jaccard_estimate": 0.6640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003625_8f60767a6d",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0003625_8f60767a6d",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0009787_620250be3f",
+      "match_id": "rlck_synthetic_diag_pipeline_0019802_542d3ca124",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0014945_a6b9e87fa7",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0007862_6b24d25bdf",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0007862_6b24d25bdf",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001537_23577a57b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003339_cd3428f470",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0015523_931bb54abc",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004312_636b5d44d3",
+      "match_id": "rlck_synthetic_diag_pipeline_0015523_931bb54abc",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0001453_816f6aaf44",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0001453_816f6aaf44",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0007627_0ca6b91ced",
+      "jaccard_estimate": 0.5546875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0000654_ae9cf72067",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0000654_ae9cf72067",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0007399_31a1a7c6dd",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0017708_43796532e6",
+      "match_id": "rlck_synthetic_diag_pipeline_0000485_93d44f2741",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0017852_29b9cf85ae",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0006801_5028cf9323",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0005987_086bb50861",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0005987_086bb50861",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0017739_fccb31fe12",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0010195_96eb948943",
+      "match_id": "rlck_synthetic_diag_pipeline_0010195_96eb948943",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0007401_1067f7ab36",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0007781_2506cc6679",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0000015_692fda6887",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0007113_8428721d3e",
+      "jaccard_estimate": 0.671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0007113_8428721d3e",
+      "jaccard_estimate": 0.640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0007828_bdb5604b12",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0017711_1fc027043d",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0017711_1fc027043d",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0016389_00ba8335c9",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0016389_00ba8335c9",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001537_23577a57b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0013918_8d7adeae65",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0012436_1518faee0a",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0017635_13a40b59d2",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0009078_68cbff39a8",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0017296_b6aa9fb598",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0017296_b6aa9fb598",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0014935_ab61e5bba4",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0017552_0e08b3c362",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0009068_fd5f7ecc66",
+      "match_id": "rlck_synthetic_diag_pipeline_0009068_fd5f7ecc66",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0003568_91da00de0f",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0003568_91da00de0f",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0008510_47aafacad9",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0008510_47aafacad9",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0008510_47aafacad9",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0005536_197e37fa85",
+      "match_id": "rlck_synthetic_diag_pipeline_0010166_e095619949",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0005536_197e37fa85",
+      "match_id": "rlck_synthetic_diag_pipeline_0006764_dd0d27cc7a",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0002529_37ec3a2ba4",
+      "match_id": "rlck_synthetic_diag_pipeline_0015438_92cc3d5e79",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003366_241de623ef",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0006911_4b69a3c847",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0017231_5621d20efa",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0013138_e984124337",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0018485_7d9e3c89e0",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0018485_7d9e3c89e0",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0019828_40b67546d0",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0019828_40b67546d0",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0011442_4cbb2230a0",
+      "match_id": "rlck_synthetic_diag_pipeline_0019963_21a36662c5",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0015147_ac3553ce48",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0015147_ac3553ce48",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0015147_ac3553ce48",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0009787_620250be3f",
+      "match_id": "rlck_synthetic_diag_pipeline_0008411_f5e0db8058",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0006140_4d185f44b0",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004312_636b5d44d3",
+      "match_id": "rlck_synthetic_diag_pipeline_0005517_ca9e065983",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007575_70e59c44e8",
+      "match_id": "rlck_synthetic_diag_pipeline_0001727_ee5895a032",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0008092_c8bc73435f",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0008092_c8bc73435f",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0013942_b7f4ef52ed",
+      "jaccard_estimate": 0.90625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0015364_565182800b",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0016320_be7e873126",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0005437_c81263e7c3",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0017594_b29cc6b05a",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0001687_33c907e169",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0018541_8dfa3b909e",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0005561_fc6992be60",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0014495_5b82220c32",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0016346_d8cb7566f7",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0007308_cefc5126b5",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0000029_b9616bcebc",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0000029_b9616bcebc",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0018381_0828493bd2",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0018381_0828493bd2",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0018381_0828493bd2",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0016800_2206d8e3b3",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0014820_5472a1b453",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0002601_55a3390b0b",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0003288_93172beda9",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0012727_ca6e7b17d7",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0012727_ca6e7b17d7",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0017708_43796532e6",
+      "match_id": "rlck_synthetic_diag_pipeline_0017979_9c17ee0a18",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0004396_076810a4a9",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000415_380a8a63b0",
+      "match_id": "rlck_synthetic_diag_pipeline_0006950_857ae77fc4",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0017993_5dfa2579b5",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0017993_5dfa2579b5",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0002115_611c6187d3",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0002115_611c6187d3",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0002115_611c6187d3",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0009853_426594660f",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0009853_426594660f",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0009853_426594660f",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0019685_73dec9bbe0",
+      "match_id": "rlck_synthetic_diag_pipeline_0017050_aa82512984",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0011645_95b2866e94",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0014317_9dedc3ad49",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004312_636b5d44d3",
+      "match_id": "rlck_synthetic_diag_pipeline_0001198_269137cd2f",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0009842_2d27814b14",
+      "match_id": "rlck_synthetic_diag_pipeline_0018484_1ff3227c9b",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0018484_1ff3227c9b",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0017212_3e842c6c63",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0017212_3e842c6c63",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0002990_a387ec2de7",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0018749_d7ed1f9b4b",
+      "match_id": "rlck_synthetic_diag_pipeline_0005172_3ea2b6e05e",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004312_636b5d44d3",
+      "match_id": "rlck_synthetic_diag_pipeline_0017208_505f8dd9bc",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0001054_70f72c767f",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0013380_2f8da1eefa",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0016241_762ea746b2",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0016241_762ea746b2",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010275_ff9a92e31d",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0004342_c2c2d44754",
+      "jaccard_estimate": 0.671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0014153_2f1653faf2",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0014153_2f1653faf2",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0010223_c3daa5c661",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003231_33e24c9c4d",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0003231_33e24c9c4d",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0019288_c7a2e4644a",
+      "match_id": "rlck_synthetic_diag_pipeline_0017447_7f24f40263",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0000902_718d8e363c",
+      "jaccard_estimate": 0.6484375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0005038_76bcd092b2",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0014292_feba9781da",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0014292_feba9781da",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0014292_feba9781da",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0007631_0fe30e0ed7",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0007631_0fe30e0ed7",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010117_38e03b26fd",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0010117_38e03b26fd",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0010117_38e03b26fd",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010263_3129f65166",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0010045_f19fefe7e0",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0010897_32ad256a50",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0006128_c05c719813",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0006128_c05c719813",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0014135_6a288b2ef1",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0015792_09a66a3f0b",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0008350_cc26d15f85",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0009532_813cdd0db0",
+      "jaccard_estimate": 0.578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0008253_8203ceb6f3",
+      "jaccard_estimate": 0.6640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0017287_a8c7f2cf07",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0013098_e6eb6f3bf8",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0000712_abc4575fe0",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0009446_39da5addb2",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0016977_ac6ac770ed",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0006262_68da54df5a",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0008058_73b78fa66b",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0008058_73b78fa66b",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0008058_73b78fa66b",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0019113_c1d672ce6d",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0017769_dfb16dbe4c",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0013710_2da3632987",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0013710_2da3632987",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0013710_2da3632987",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0005536_197e37fa85",
+      "match_id": "rlck_synthetic_diag_pipeline_0019494_9bb816f3f7",
+      "jaccard_estimate": 0.671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0018872_0a63e40bee",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0018872_0a63e40bee",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0003866_e6810f3bb4",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0003866_e6810f3bb4",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0003866_e6810f3bb4",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003297_30d87852e6",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0010170_e72671cdef",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0010170_e72671cdef",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0010170_e72671cdef",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0007937_1d16215969",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0013527_0fac4e1017",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0014663_c61563569b",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0014663_c61563569b",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0005333_f220a013e0",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0005333_f220a013e0",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0016543_fbe9593b26",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0012709_8cf627845b",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001537_23577a57b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003773_110c95880e",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0002529_37ec3a2ba4",
+      "match_id": "rlck_synthetic_diag_pipeline_0003773_110c95880e",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0017323_407da5fb41",
+      "jaccard_estimate": 0.6484375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0017323_407da5fb41",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0002770_eef9e88a1e",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0008910_1a383df84d",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0008910_1a383df84d",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0005276_7b87c247ed",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0005849_dfd2990f7b",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0005849_dfd2990f7b",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0019769_aaab01601c",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0019769_aaab01601c",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0009915_45d0596a46",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0015296_473aab5ef0",
+      "jaccard_estimate": 0.671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0016607_28d0e64bc7",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000415_380a8a63b0",
+      "match_id": "rlck_synthetic_diag_pipeline_0015042_5d76ec379c",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0005941_6e03c57ac6",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0005941_6e03c57ac6",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0002496_9cd341d062",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0017943_21654b8cd5",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0013896_fb3aea9154",
+      "jaccard_estimate": 0.9296875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012013_406c0901c9",
+      "match_id": "rlck_synthetic_diag_pipeline_0004007_1b24f44bf1",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0008138_6463541517",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0011296_72f62d9f9c",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0017653_7012e8ac82",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0017653_7012e8ac82",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0013515_24f27c3e5b",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0013515_24f27c3e5b",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000124_f880188da2",
+      "match_id": "rlck_synthetic_diag_pipeline_0000099_402bb9e0d6",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0014194_ceebf26f18",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0014066_c838b05be0",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0009842_2d27814b14",
+      "match_id": "rlck_synthetic_diag_pipeline_0004808_18246f05ea",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0004808_18246f05ea",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0013146_f2214bcd80",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0018820_d30a85845e",
+      "jaccard_estimate": 0.5546875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001537_23577a57b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0012548_20af02eeee",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0006173_93c606da6e",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010106_7ee0aca4ea",
+      "match_id": "rlck_synthetic_diag_pipeline_0016848_b1fa6ea412",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0020075_c8c3537570",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0004278_14526c00c1",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000553_d90b2f7991",
+      "match_id": "rlck_synthetic_diag_pipeline_0000813_7612113ea8",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0008676_d5b5721c9a",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0016332_3cd3b2534d",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0015082_25ff3eb1d4",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0004006_557716ab45",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0002749_42b3ea758c",
+      "match_id": "rlck_synthetic_diag_pipeline_0013610_29e7d59f61",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0015045_8ef71cae5b",
+      "jaccard_estimate": 0.90625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0011062_bafdde9b73",
+      "match_id": "rlck_synthetic_diag_pipeline_0008786_e326180e4c",
+      "jaccard_estimate": 0.6484375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0010416_06bdac7655",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0009561_5583b7746b",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0009561_5583b7746b",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0004089_56ae267052",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0015041_9a2ed01ea4",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0015041_9a2ed01ea4",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0008142_99c6ddde7f",
+      "jaccard_estimate": 0.6640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0012260_f2eab4e54d",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0004653_850ccdec48",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0004653_850ccdec48",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0000217_bc4f73cfdd",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0000217_bc4f73cfdd",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0012731_68a3644faf",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0012731_68a3644faf",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0018500_c731aef031",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0018500_c731aef031",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014078_5533d7c39c",
+      "match_id": "rlck_synthetic_diag_pipeline_0018636_1f63bcfe56",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_drv_summary_synthetic_diag_pipeline_0012896_5a387f1da8",
+      "match_id": "rlck_synthetic_diag_pipeline_0012896_5a387f1da8",
+      "jaccard_estimate": 0.609375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0006616_eeb1253273",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0002118_1e19fdfdac",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0005357_ee60e1f97a",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0012486_5a51cc367d",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0018828_c5c4bf6e1d",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0008162_3fd7d0591f",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0007215_b3405073e2",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0010333_04f505b12d",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0018674_458eab0e25",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0018749_d7ed1f9b4b",
+      "match_id": "rlck_synthetic_diag_pipeline_0013459_bae0ee616b",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0019562_11e02a8edd",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0002749_42b3ea758c",
+      "match_id": "rlck_synthetic_diag_pipeline_0001051_d830be72fd",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0001051_d830be72fd",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0001051_d830be72fd",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0001051_d830be72fd",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0002414_e63b34d5a2",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0003094_08988b0555",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0003731_4652ba6ab4",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0013300_e56fbae542",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0013300_e56fbae542",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0017288_6b6f34e33f",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0013296_e270afc726",
+      "match_id": "rlck_synthetic_diag_pipeline_0004063_816a5f6bdf",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0018452_82977aef1a",
+      "jaccard_estimate": 0.640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0013648_5f18e50ebe",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0013648_5f18e50ebe",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0007101_c727f7f0eb",
+      "match_id": "rlck_synthetic_diag_pipeline_0020180_14c50b82dc",
+      "jaccard_estimate": 0.65625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0007531_6ca785a33a",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0003268_ab6ede3de1",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0003523_cfa4e25ff1",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0019042_c2482ae288",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0011845_bf13bcfbcf",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0011845_bf13bcfbcf",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0011845_bf13bcfbcf",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0006542_efb50288d1",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010920_e8dd757573",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0017175_1b73ea83a8",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0017175_1b73ea83a8",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0017175_1b73ea83a8",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0019026_67948c0ec8",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0014855_c1fb6cce2f",
+      "jaccard_estimate": 0.859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0014829_9d0209d84d",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0005536_197e37fa85",
+      "match_id": "rlck_synthetic_diag_pipeline_0018507_952c99cc69",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0015363_ea3331358c",
+      "jaccard_estimate": 0.5859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0016208_fa4d85cd39",
+      "jaccard_estimate": 0.90625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0016208_fa4d85cd39",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0001582_6705106d64",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0004192_134c21dfc9",
+      "jaccard_estimate": 0.6953125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000218_0faf6485b7",
+      "match_id": "rlck_synthetic_diag_pipeline_0003360_3922396944",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0016624_6426c1681e",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0008651_efdef5d4ce",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0005239_19205da49b",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0001148_bac863733b",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0018655_d80500c1d7",
+      "match_id": "rlck_synthetic_diag_pipeline_0001203_3a21e70d12",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0014833_12b53e300a",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0002529_37ec3a2ba4",
+      "match_id": "rlck_synthetic_diag_pipeline_0007470_addb57ec8c",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0019883_8580def5f7",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0011062_bafdde9b73",
+      "match_id": "rlck_synthetic_diag_pipeline_0008934_2a3fc4a564",
+      "jaccard_estimate": 0.6171875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0006828_5d5fd76874",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0015090_2b55315aa2",
+      "jaccard_estimate": 0.515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0016311_2674848b19",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0015457_da21d2ee93",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0015457_da21d2ee93",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014201_563aaf220d",
+      "match_id": "rlck_synthetic_diag_pipeline_0014863_f292fd9917",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0009787_620250be3f",
+      "match_id": "rlck_synthetic_diag_pipeline_0010661_1fa3475546",
+      "jaccard_estimate": 0.7421875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0012577_3d13706683",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0000946_6eb7956bc7",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0000946_6eb7956bc7",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0014097_2ce431607f",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0014097_2ce431607f",
+      "jaccard_estimate": 0.640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0003834_1a0ddc8eee",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0016007_3da4a6b023",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0003499_d33ec5ed9b",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0004181_9c64b94259",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0013296_e270afc726",
+      "match_id": "rlck_synthetic_diag_pipeline_0000635_b7394098c1",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0017568_a0db80b72e",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0017460_e175984628",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0005582_51330ed104",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0002781_caeca4fe14",
+      "jaccard_estimate": 0.6875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001537_23577a57b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0017845_bf15d9a0e3",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0003251_0f5374ef34",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0002388_270785ec14",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0002388_270785ec14",
+      "jaccard_estimate": 0.84375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0005846_dc55282872",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0005846_dc55282872",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0007278_d2fc6b22cd",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0019830_a78cf62494",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0019830_a78cf62494",
+      "jaccard_estimate": 0.7265625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000438_6dce15947c",
+      "match_id": "rlck_synthetic_diag_pipeline_0015464_f901f335f6",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0013665_f09a246b81",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0013665_f09a246b81",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0008736_7e0fda3963",
+      "match_id": "rlck_synthetic_diag_pipeline_0015279_81bc440019",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0016146_8825d0349e",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0001080_839d7f488c",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0000104_b2031149fd",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0000104_b2031149fd",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0005243_c7fee886e2",
+      "jaccard_estimate": 0.8515625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0012870_6a158a631c",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0015410_7eb01b69ca",
+      "match_id": "rlck_synthetic_diag_pipeline_0003997_d6da16f000",
+      "jaccard_estimate": 0.546875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0001616_10265a4bdd",
+      "jaccard_estimate": 0.7578125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0001616_10265a4bdd",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0012174_bc65420cca",
+      "jaccard_estimate": 0.6796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0012174_bc65420cca",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0018655_d80500c1d7",
+      "match_id": "rlck_synthetic_diag_pipeline_0012204_c2c33f9915",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0009568_d2afe99a2d",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0012158_c180742d41",
+      "match_id": "rlck_synthetic_diag_pipeline_0016802_2976e089a8",
+      "jaccard_estimate": 0.875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016938_b401eecd0b",
+      "match_id": "rlck_synthetic_diag_pipeline_0010089_096e1730d9",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0015268_cd7d53b495",
+      "jaccard_estimate": 0.7734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0000594_2ffaf7d110",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0014596_cb608b52b8",
+      "match_id": "rlck_synthetic_diag_pipeline_0017902_3eaa29804e",
+      "jaccard_estimate": 0.7890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0014632_259cedef19",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0002107_b644ced155",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0003712_542394124a",
+      "match_id": "rlck_synthetic_diag_pipeline_0002107_b644ced155",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0002107_b644ced155",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000415_380a8a63b0",
+      "match_id": "rlck_synthetic_diag_pipeline_0003215_4b0facd40a",
+      "jaccard_estimate": 0.5859375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0002700_5d0d0fa605",
+      "jaccard_estimate": 0.734375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0002700_5d0d0fa605",
+      "jaccard_estimate": 0.8359375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0011154_aee7c90860",
+      "jaccard_estimate": 0.765625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0008616_e883238bc2",
+      "jaccard_estimate": 0.703125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0000587_d4e591a082",
+      "jaccard_estimate": 0.8203125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0005536_197e37fa85",
+      "match_id": "rlck_synthetic_diag_pipeline_0000524_22f6b4f0ba",
+      "jaccard_estimate": 0.71875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0001360_5e2b72a7c8",
+      "match_id": "rlck_synthetic_diag_pipeline_0010495_272de1c79f",
+      "jaccard_estimate": 0.78125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004975_7ad60f8819",
+      "match_id": "rlck_synthetic_diag_pipeline_0015308_1944da04ac",
+      "jaccard_estimate": 0.8671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000126_aa33dacc47",
+      "match_id": "rlck_synthetic_diag_pipeline_0015308_1944da04ac",
+      "jaccard_estimate": 0.890625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0000292_6bf2a8b640",
+      "match_id": "rlck_synthetic_diag_pipeline_0015308_1944da04ac",
+      "jaccard_estimate": 0.8828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0007094_1d96b121c7",
+      "jaccard_estimate": 0.796875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0001665_bbf78688e1",
+      "jaccard_estimate": 0.8046875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0016337_b2dd48cfc5",
+      "jaccard_estimate": 0.75
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0016337_b2dd48cfc5",
+      "jaccard_estimate": 0.828125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0004662_7507b4c17b",
+      "match_id": "rlck_synthetic_diag_pipeline_0000039_26f39eaa11",
+      "jaccard_estimate": 0.7109375
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0006159_5176fdb804",
+      "match_id": "rlck_synthetic_diag_pipeline_0006390_3493d572a8",
+      "jaccard_estimate": 0.671875
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016074_07230db801",
+      "match_id": "rlck_synthetic_diag_pipeline_0006390_3493d572a8",
+      "jaccard_estimate": 0.6640625
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0016777_f696ea04cd",
+      "match_id": "rlck_synthetic_diag_pipeline_0006086_37f99400e9",
+      "jaccard_estimate": 0.8125
+    },
+    {
+      "query_id": "rlck_synthetic_diag_pipeline_0010955_b3ab30eea1",
+      "match_id": "rlck_synthetic_diag_pipeline_0019420_7f7984ba42",
+      "jaccard_estimate": 0.7421875
+    }
+  ],
+  "near_dup_within_train_sample": "skipped: run on server, train set too large for a quick local pass",
+  "PASS": false
+}

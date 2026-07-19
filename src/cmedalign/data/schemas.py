@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import Literal, Optional
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 Role = Literal["system", "user", "assistant"]
 
@@ -25,18 +25,45 @@ class Message(BaseModel):
         return v
 
 
+class SyntheticProvenance(BaseModel):
+    """Required whenever a record is synthetic rather than a real recorded
+    conversation (per the paper's non-negotiable reporting rules and
+    cmedalign_paper/SOURCE_AUDIT.md §6b's "seed-flywheel" data source): who
+    generated it, when, and whether/by whom it was reviewed. Never merge a
+    synthetic record's provenance indistinguishably into a real-data source."""
+
+    teacher_model: str  # e.g. "DeepSeek-V4-Pro" (patient role) — record the exact model, not a paper alias
+    doctor_model: Optional[str] = None  # e.g. "Qwen3-8B" if the base model generated the doctor turns
+    generation_date: Optional[str] = None  # ISO8601
+    reviewed_by: list[str] = Field(default_factory=list)  # e.g. ["stronger_reviewing_model", "clinical_staff"]
+    audit_status: Literal["unreviewed", "model_reviewed", "clinically_audited"] = "unreviewed"
+
+
 class ConversationRecord(BaseModel):
     sample_id: str
     source: str
     source_revision: str
     split: Literal["train", "dev", "test"]
     messages: list[Message]
-    specialty: Optional[str] = None
+    specialty: Optional[str] = None  # medical department, e.g. 内科/外科 -- distinct from task_type below
+    task_type: Optional[str] = None  # e.g. symptom_consultation, triage_guidance -- see spec/design.md task_type taxonomy
+    quality_score: Optional[float] = None
     safety_tags: list[str] = Field(default_factory=list)
     provenance: str
     license_id: str
     raw_hash: str
     normalized_hash: str
+    synthetic_or_real: Literal["real", "synthetic"] = "real"
+    synthetic_provenance: Optional[SyntheticProvenance] = None
+
+    @model_validator(mode="after")
+    def synthetic_records_need_provenance(self):
+        if self.synthetic_or_real == "synthetic" and self.synthetic_provenance is None:
+            raise ValueError(
+                "synthetic_or_real='synthetic' requires synthetic_provenance to be set "
+                "(teacher_model at minimum) — do not silently drop synthetic-data provenance"
+            )
+        return self
 
     @field_validator("messages")
     @classmethod

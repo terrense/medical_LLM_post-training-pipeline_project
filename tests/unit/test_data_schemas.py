@@ -1,7 +1,13 @@
 import pytest
 from pydantic import ValidationError
 
-from cmedalign.data.schemas import ConversationRecord, Message, PatientProfile, RequiredInfoItem
+from cmedalign.data.schemas import (
+    ConversationRecord,
+    Message,
+    PatientProfile,
+    RequiredInfoItem,
+    SyntheticProvenance,
+)
 
 
 def _base_record(**overrides):
@@ -55,6 +61,32 @@ def test_unknown_role_rejected():
 def test_empty_messages_list_rejected():
     with pytest.raises(ValidationError):
         ConversationRecord(**_base_record(messages=[]))
+
+
+def test_synthetic_record_requires_provenance():
+    with pytest.raises(ValidationError):
+        ConversationRecord(**_base_record(synthetic_or_real="synthetic"))
+
+
+def test_synthetic_record_with_provenance_accepted():
+    rec = ConversationRecord(
+        **_base_record(
+            synthetic_or_real="synthetic",
+            synthetic_provenance=SyntheticProvenance(
+                teacher_model="DeepSeek-V4-Pro",
+                doctor_model="Qwen3-8B",
+                reviewed_by=["stronger_reviewing_model", "clinical_staff"],
+                audit_status="clinically_audited",
+            ),
+        )
+    )
+    assert rec.synthetic_provenance.teacher_model == "DeepSeek-V4-Pro"
+
+
+def test_real_record_default_needs_no_provenance():
+    rec = ConversationRecord(**_base_record())
+    assert rec.synthetic_or_real == "real"
+    assert rec.synthetic_provenance is None
 
 
 def test_patient_profile_roundtrip():

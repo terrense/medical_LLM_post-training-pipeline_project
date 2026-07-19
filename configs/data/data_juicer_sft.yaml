@@ -1,0 +1,57 @@
+# Data-Juicer 清洗配置 — cmedalign SFT 数据管线
+#
+# 用户要求(2026-07-19)：以后清洗数据统一用 data-juicer，不再手写正则清洗脚本。
+# 沿用 rlhf_lab_cloud_kit/configs_cloud/dj_med_config.yaml 里验证过的算子命名和
+# open_tracer/trace_num 追溯机制，但这里是给"多轮 messages 结构化对话"用的，不是那份
+# demo 配置针对的单字段连续文本(CPT 语料)。
+#
+# 用法：先用 scripts/data_juicer/flatten_for_dj.py 把 ConversationRecord 的
+# messages 拼成单一 text 字段（保留 sample_id 用于清洗后关联回结构化记录），
+# 再跑本配置，再用 scripts/data_juicer/rejoin_after_dj.py 把 data-juicer 的
+# 保留/丢弃决定映射回原始结构化 JSONL（结构化记录本身不被 data-juicer 改写内容，
+# 只用它来做质量过滤和去重决策——避免 data-juicer 的文本级算子破坏 role/turn 结构）。
+
+project_name: 'cmedalign_sft_v1'
+dataset_path: 'data/normalized/_dj_flattened.jsonl'   # 由 flatten_for_dj.py 生成
+export_path: 'data/normalized/_dj_cleaned.jsonl'
+np: 8
+text_keys: 'text'
+open_tracer: true   # 记录每个算子删/改了哪些样本，可追溯，不能只看"清洗后剩多少条"
+trace_num: 50        # 比 rlhf_lab_cloud_kit 的 demo(10) 多一些，方便人工抽查
+
+process:
+  # --- Mapper: 规范化 ---
+  - whitespace_normalization_mapper:
+  - clean_email_mapper:
+  - clean_links_mapper:
+  - clean_html_mapper:
+
+  # --- Filter: 质量过滤 ---
+  - text_length_filter:
+      min_len: 10
+      max_len: 8000        # 与 rlhf_lab_cloud_kit clean_02.py 的 MAX_TOTAL 保持一致
+  - character_repetition_filter:
+      rep_len: 10
+      max_ratio: 0.5
+  - special_characters_filter:
+      max_ratio: 0.4
+  - language_id_score_filter:
+      lang: 'zh'
+      min_score: 0.8        # 主体应为中文；混入的非中文噪声样本过滤掉
+
+  # --- Deduplicator: 精确 + 近似去重 ---
+  - document_deduplicator:            # 精确去重(等价于 rlhf_lab_cloud_kit dedup_04.py 的跨源精确 hash)
+      lowercase: true
+      ignore_non_character: true
+  - document_minhash_deduplicator:    # 近似去重(等价于 sample_05_v11.py 的 MinHash 阶段，但用 data-juicer 官方实现代替手写版本)
+      tokenization: 'character'
+      jaccard_threshold: 0.85   # 起点阈值，非最终值；需要针对真实数据重新校准，
+                                 # 见 spec/tasks.md 里 embedding-similarity 补充检查的说明
+
+# 明确不做的事(留给 cmedalign 自己的代码处理，不塞进 data-juicer 配置里)：
+#   - task_type 分类(规则/模型分类逻辑留在 cmedalign 自己的代码里，方便单元测试)
+#   - 与 benchmark(CMB/CMExam等)的 contamination 检查(需要跨数据集比较，
+#     用 src/cmedalign/data/dedup.py:cross_split_contamination，不是 data-juicer 的职责)
+#   - PII/脱敏(本项目目前引入的数据源均为公开数据或确认无隐私风险的合成数据，
+#     见 BLOCKERS.md 的已解决记录；如果未来引入真实病历数据，需要在这里补充脱敏算子，
+#     并且必须先在 BLOCKERS.md 走一遍隐私确认流程，不能默认这份配置已经处理了脱敏)
