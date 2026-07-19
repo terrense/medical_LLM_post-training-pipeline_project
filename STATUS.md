@@ -114,3 +114,37 @@ ETA: local prep done in a single sitting; the real 96h execution clock starts on
 - Did NOT touch: real datasets, real API keys, any GPU/CUDA work, the actual
   `agent_func_path` implementation (needs a real LLM to play patient), OpenRLHF's own
   SFT collator internals (deferred, fast to check on the server).
+
+### 2026-07-19 (later) — GitHub remote + first two API baselines wired and smoke-tested
+- User provided a private GitHub remote (`terrense/medical_LLM_post-training-pipeline_project`)
+  for ongoing iterative code + experiment-log management (not for server transfer --
+  that'll likely be direct scp/rsync once SSH is available, TBD). Amended the bootstrap
+  commit to drop the `Co-Authored-By: Claude` trailer per explicit user request (repo is
+  meant to look authored solely by the user), renamed `master` -> `main`, pushed as the
+  initial history. Going forward: no co-author trailer on this repo's commits.
+- User pasted real DeepSeek and MiniMax API keys directly in chat (acknowledged it wasn't
+  ideal, was in a hurry). Stored only in `E:\cmedalign\.env` (gitignored, verified with
+  `git check-ignore`), never echoed back in chat or committed anywhere.
+- DeepSeek: key matches the official platform's key format (`sk-` + 32 hex chars).
+  Queried `GET https://api.deepseek.com/v1/models` (a free metadata call, not a paid
+  generation) to get real model IDs rather than guessing -- confirmed
+  `deepseek-v4-pro` and `deepseek-v4-flash` are the real server-side model strings (the
+  spec's "V4-Pro"/"V4-Flash" naming was closer to the real IDs than DeepSeek's earlier
+  models suggested, but still good that we checked rather than assumed). Ran one real
+  minimal chat call (`max_tokens=200, temperature=0`) through our actual
+  `api_adapter.OpenAICompatibleClient` code path (not just curl) for both -- both
+  returned coherent, correct Chinese medical text, no `<think>` tags in either response
+  (`had_think_tags: False` via `human_pack.strip_thinking_trace`), Pro hit
+  `finish_reason: length` at 200 tokens (response was still complete/sensible; note for
+  real eval runs to size `max_tokens` generously), Flash returned `finish_reason: stop`.
+  `.env` updated with the confirmed `BASE_URL=https://api.deepseek.com/v1` and both
+  model IDs. **DeepSeek V4-Pro and V4-Flash are now confirmed working end-to-end.**
+- MiniMax M3: key format (`sk-cp-...`) does NOT match either official DeepSeek-style or
+  typical official MiniMax (long JWT-style) key formats -- almost certainly a
+  third-party proxy/reseller key, so its `BASE_URL` cannot be safely guessed (still
+  `TODO_FILL_IN` in `.env`). **Waiting on user for the MiniMax endpoint (and, ideally,
+  the exact model ID string) before it can be smoke-tested.**
+- Added `scripts/smoke_test_api.py`: a manual (not part of the automated pytest suite,
+  since it costs real money and needs real credentials) one-shot smoke test that loads
+  `.env`, calls each configured alias once with a minimal prompt, and reports whether
+  `<think>` tags showed up. Re-run this any time a new API alias is wired up.
