@@ -309,24 +309,28 @@ Do these in order; each is a real gate, don't skip ahead if one fails.
 - [ ] Save merged HF checkpoint + LoRA adapter to `checkpoints/m1_sft/`
 - [ ] Run core eval suite against M1 (same as M0)
 - [ ] **G5 gate for M1: PASS/FAIL recorded in `STATUS.md`**
-- [x] **Done 2026-07-20 (scaffold only)** — user wants a hands-on LoRA-vs-full-parameter
-      comparison ("既然花钱干，这一次就干个彻底"). Wrote `configs/sft/full_param.yaml`:
-      same data/seed/epochs/max_length as the LoRA run, only `full_parameter: true`
-      differs (one-variable-at-a-time, per this project's own rule). Documented the
-      real VRAM math in the config's own comments: full-parameter 8B fine-tuning
-      (bf16 weights+grads + fp32 master weights + fp32 Adam m/v) needs ~128GB before
-      even counting activations/batch — **does not fit on a single 80/96GB GPU**,
-      needs DeepSpeed ZeRO-2/3 across at least 2 (tight) or ideally 4 GPUs. This is a
-      real, different hardware requirement from the LoRA SFT/DPO phase (~27-45GB,
-      1 GPU) discussed earlier in STATUS.md — **don't reuse the "1 GPU is enough"
-      sizing advice for this specific run.** Scope: this comparison only needs to go
-      through the SFT evaluation layer to answer the user's actual question
-      (convergence speed, final scores, overfitting tendency, real measured VRAM,
-      wall-clock cost, checkpoint size, general-capability regression) — main.tex's own
-      text already says a full-parameter run doesn't have to continue through DPO/GRPO
-      to be reported, only the required LoRA chain does. Not yet decided: whether this
-      becomes a supplementary result in the paper itself (not yet edited into `main.tex`
-      this round, only user-facing planning so far) — ask/confirm before adding it there.
+- [x] **Done 2026-07-20** — user wants a hands-on LoRA-vs-full-parameter comparison
+      ("既然花钱干，这一次就干个彻底"), then clarified further: **both are required,
+      and the stronger one (not both) continues through DPO and GRPO** ("全量 LoRA都
+      需要，选择更强的那个去继续DPO GRPO，按我说的来，论文如果和这句话相违背，改之！").
+      Wrote `configs/sft/full_param.yaml` (same data/seed/epochs/max_length as the LoRA
+      run, only `full_parameter: true` differs). Documented the real VRAM math: full-
+      parameter 8B fine-tuning needs ~128GB before activations -- **does not fit on a
+      single 80/96GB GPU**, needs DeepSpeed ZeRO-2/3 across at least 2 (tight) or ideally
+      4 GPUs, a real, different hardware requirement from the LoRA SFT/DPO phase
+      (~27-45GB, 1 GPU). **`main.tex` edited accordingly** (per explicit user
+      instruction to change the paper if it conflicted): SFT section now describes both
+      variants run on identical data/seed, evaluated on the frozen training-only dev
+      composite (never test), winner becomes $M_1$ and carries forward, loser retained
+      and reported (not discarded); added Table~\ref{tab:sftmethod} (new
+      `tables/table_sft_method.csv`, schema added to `RESULTS_AND_TABLE_SCHEMA.md` and
+      `cmedalign.schema.records.SFTMethodRow` with a `require_exactly_one_winner()`
+      check); updated the DPO paragraph, the hyperparameter table, the Results section,
+      and the Limitations paragraph (which previously framed LoRA-only as a limitation --
+      no longer accurate). Logged in `cmedalign_paper/CHANGELOG.md`. Could not compile
+      the LaTeX to verify (no TeX installation on this machine) -- checked manually for
+      dangling `\ref`s to labels that don't exist, none found, but a real
+      `pdflatex`/`bibtex` build should still be run before trusting this compiles clean.
 
 ## Phase 5 — DPO (M2)
 

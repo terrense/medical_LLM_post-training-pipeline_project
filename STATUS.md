@@ -377,3 +377,27 @@ master权重+Adam一二阶矩 96GB ≈ 128GB，还没算激活值)跟 LoRA 的 ~
 
 **还没做的**（老实列）：MedDG/IMCS-21 的许可证授权决定、CliMedBench 数据获取方式、
 `make data-audit` 还没针对新导入的 CMtMedQA/CMB 重新跑一遍。
+
+### 2026-07-20（第三轮）— 数据授权拍板 + 论文正文按用户指示改写
+
+用户三句话，全部落实：
+
+1. **"数据集能用就行关键是质量要高，别的你别去纠结了"** —— MedDG、IMCS-21 从
+   quarantine 移回 `data/raw/`，license_ledger 标 `unknown_but_authorized`；
+   CliMedBench 确认拿不到完整数据集这件事不再追（不联系作者），按论文自己允许的
+   降级方案处理，`BLOCKERS.md` 两项都已解除。
+2. **"全量 LoRA都需要，选择更强的那个去继续DPO GRPO，按我说的来，论文如果和这句话
+   相违背，改之！"** —— 这是本轮最大的一件事。真的去改了 `main.tex`（不是只记在
+   我们自己的 spec 里）：SFT 阶段现在明确写成"LoRA 和全量微调都做，数据/seed/epoch/
+   序列长度完全一致，只改适配方式，用冻结的 training-only dev composite 选出更强的
+   那个作为 M1，继续走 DPO/GRPO，另一个保留报告不丢弃"。相应改了 DPO 那段（不再假设
+   M1 一定是 LoRA）、hyperparameter 表、Results 里的一句话、以及 Limitations 里原本
+   "偏向 LoRA"这句已经不准确的表述。新增了 `table_sft_method.csv` 这张表的 schema
+   （论文侧 `RESULTS_AND_TABLE_SCHEMA.md` + 代码侧 `cmedalign.schema.records.
+   SFTMethodRow`，带"必须恰好一个 is_winner"的校验，配了单测）。129 个测试全过。
+   **诚实说一句**：这台机器没装 LaTeX，没法本地编译验证改完的 main.tex 到底能不能
+   正常出 PDF，只人工过了一遍有没有引用不存在的 `\label`（改的时候确实手滑写错过，
+   已经改成不引用不存在的），正式提交前必须找一台装了 TeX 的机器跑一遍
+   `pdflatex+bibtex` 确认。
+3. `spec/requirements.md` 的"用户后续澄清"追加区已经把这几轮的决定都补录进去，
+   作为可追溯的历史记录。

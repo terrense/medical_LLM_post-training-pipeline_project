@@ -4,9 +4,11 @@ from pydantic import ValidationError
 from cmedalign.schema.records import (
     ErrorAdjudicationRecord,
     HumanTableRow,
+    SFTMethodRow,
     StageAblationRow,
     StatisticsEntry,
     TableMainRow,
+    require_exactly_one_winner,
 )
 from cmedalign.schema.results_layout import (
     HUMAN_EVAL_FILES,
@@ -102,3 +104,25 @@ def test_error_adjudication_record_fixed_categories_enforced():
         present=True, adjudicator_count=2, adjudication_status="double_rater_agree",
     )
     assert rec.error_category == "missed_red_flag"
+
+
+def test_sft_method_rows_require_exactly_one_winner():
+    rows = [
+        SFTMethodRow(method="lora", dev_composite_score=0.72, is_winner=True),
+        SFTMethodRow(method="full_parameter", dev_composite_score=0.68, is_winner=False),
+    ]
+    require_exactly_one_winner(rows)  # must not raise
+
+    no_winner = [
+        SFTMethodRow(method="lora", is_winner=False),
+        SFTMethodRow(method="full_parameter", is_winner=False),
+    ]
+    with pytest.raises(ValueError):
+        require_exactly_one_winner(no_winner)
+
+    two_winners = [
+        SFTMethodRow(method="lora", is_winner=True),
+        SFTMethodRow(method="full_parameter", is_winner=True),
+    ]
+    with pytest.raises(ValueError):
+        require_exactly_one_winner(two_winners)

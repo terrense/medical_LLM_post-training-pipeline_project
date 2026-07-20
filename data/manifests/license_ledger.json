@@ -122,22 +122,22 @@
   "MedDG@lwgkzl/MedDG (Google Drive hosted)": {
     "source": "MedDG",
     "revision": "lwgkzl/MedDG (Google Drive hosted)",
-    "license_id": "unknown",
-    "license_status": "unclear",
+    "license_id": "unknown_but_authorized",
+    "license_status": "cleared",
     "url": "https://github.com/lwgkzl/MedDG",
-    "retrieved_at": "2026-07-20T00:03:14.221895+00:00",
+    "retrieved_at": "2026-07-20T02:17:28.126347+00:00",
     "raw_file_sha256": "see_file",
-    "notes": "No LICENSE file, no explicit terms beyond an academic citation request in the README. Downloaded to data/quarantine/meddg/ for provenance recording -- NOT cleared for training until license clarified."
+    "notes": "No LICENSE file, no explicit terms beyond an academic citation request in the README. Downloaded to data/quarantine/meddg/ for provenance recording -- NOT cleared for training until license clarified. AUTHORIZED FOR USE by user 2026-07-20 (academic citation is sufficient, quality over paperwork perfection -- do not chase further license detail)."
   },
   "IMCS-21@lemuria-wchen/imcs21": {
     "source": "IMCS-21",
     "revision": "lemuria-wchen/imcs21",
-    "license_id": "unknown",
-    "license_status": "unclear",
+    "license_id": "unknown_but_authorized",
+    "license_status": "cleared",
     "url": "https://github.com/lemuria-wchen/imcs21",
-    "retrieved_at": "2026-07-20T00:03:14.221895+00:00",
+    "retrieved_at": "2026-07-20T02:17:28.126347+00:00",
     "raw_file_sha256": "see_file",
-    "notes": "No LICENSE file on GitHub, tied to CBLUE@Tianchi competition platform (may have its own terms of use not visible in the repo). Downloaded to data/quarantine/imcs21/ for provenance recording -- NOT cleared for training until license clarified."
+    "notes": "No LICENSE file on GitHub, tied to CBLUE@Tianchi competition platform (may have its own terms of use not visible in the repo). Downloaded to data/quarantine/imcs21/ for provenance recording -- NOT cleared for training until license clarified. AUTHORIZED FOR USE by user 2026-07-20 (academic citation is sufficient, quality over paperwork perfection -- do not chase further license detail)."
   },
   "CliMedBench@Optifine-TAT/CliMedBench": {
     "source": "CliMedBench",

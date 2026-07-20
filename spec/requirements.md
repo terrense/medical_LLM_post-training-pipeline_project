@@ -362,6 +362,43 @@ ETA:
 5. **用户有自己此前准备的多轮对话医疗场景数据**，准备中，尚未提供本地路径；使用前必须先确认数据来源（自建 vs 第三方）以决定走 license ledger 的 `cleared` 还是 `data/quarantine/`。
 6. **建议参考 Kiro 的 spec-driven coding 模式**：即维护 `requirements.md`/`design.md`/`tasks.md` 这样的结构化文档，而不是只有一份线性日志，方便随时切入。本文件 (`spec/requirements.md`)、`spec/design.md`、`spec/tasks.md` 就是对这个建议的落地。
 
+### 补充：论文锚点确立 + 项目合并 + 数据/GPU/评测决策 (2026-07-19 晚些时候 至 2026-07-20)
+
+7. **`E:\cmedalign_paper\main.tex` 是唯一的科研范围锚点。** 用户展示了这个论文包
+   （`CLAUDE_CODE_EXECUTION_PLAN.md` 就是本文件最初的原文来源），明确说"我们不能完全
+   被我之前的实验带偏了...我们要统一一个主心骨"。据此：tool-calling、DAgger、
+   packing/loss-normalization/curriculum 对比、梯度冲突诊断等 `rlhf_lab_cloud_kit` 那份
+   通用 SFT 严谨性清单里的内容，**明确排除**在本项目范围外（论文完全不需要）。
+8. **`rlhf_lab_cloud_kit` 项目冻结为历史资产库，`cmedalign` 是唯一活跃项目。** 可复用
+   资产（task_type 数据、清洗去重逻辑、锁定的 LoRA rank/alpha、DPO 双裁判模式）已导入
+   `cmedalign`。**该项目第一轮的 GRPO（选择题+规则奖励）不等于论文要求的 GRPO（多轮
+   患者模拟+5分量奖励），不能当作论文的 M3。** 论文的 GRPO 必须在 `cmedalign` 里按
+   论文描述重新构建。
+9. **以后清洗数据统一用 data-juicer**，不再手写正则清洗脚本；**清洗和训练要用不同的
+   conda 环境**（`cmedalign-clean` / `cmedalign-train`），避免依赖冲突。
+10. **裁判模型**：ChatGPT/Claude.ai 的会员订阅（网页版/Codex）跟 API 访问是两回事，
+    自动给 GRPO rollout 打分需要真实的、按量计费的 API key。默认用已验证可用的
+    DeepSeek-V4-Pro 当裁判，可通过环境变量换成任何配置好的 API。
+11. **数据集使用授权**（务实处理，不做无谓的许可证考古）：
+    - `internal_seed_flywheel`/`derived_from_seed`：确认是虚构合成数据（DeepSeek-V4-Pro
+      扮演患者、本项目基座 Qwen3-8B 扮演医生、更强模型+真实医护人员修订），不存在隐私
+      问题，已授权使用。
+    - `med_zh_real`：来源暂时想不起来（用户会后续确认），"某开源数据集"，内容质量审查
+      通过（0% 广告/PII/危险建议命中），已授权先用，后续要补全论文里的引用来源。
+    - `MedDG`、`IMCS-21`：都没有 LICENSE 文件，用户原话"数据集能用就行关键是质量要高，
+      别的你别去纠结了"——已授权按"学术引用即可使用"处理，不再深究许可证细节。
+    - `CliMedBench`：完整数据集（33,735题）拿不到，GitHub 仓库只有任务说明 PDF，
+      需要联系作者。用户决定不追（"别纠结了"），按论文自己允许的降级方案处理
+      （拿到多少报多少，拿不到就标 `pending`，不编数字）。
+12. **LoRA 和全量微调都要做，不是二选一。** 用户原话："全量 LoRA都需要，选择更强的
+    那个去继续DPO GRPO，按我说的来，论文如果和这句话相违背，改之！"——已按此改写
+    `main.tex`（SFT 阶段同时跑 LoRA 和全量微调两个变体，数据/seed/epoch/序列长度完全
+    一致，只改适配方式这一个变量；用冻结的 training-only dev composite——不是 test——
+    选出更强的那个作为 M1，继续走 DPO 和 GRPO；另一个变体保留并报告对比结果，不丢弃）。
+    新增 `tables/table_sft_method.csv`/`table:sft_method` 这张表专门记录这个对比。
+    全量微调显存需求（~128GB，bf16权重+梯度+fp32 master权重+Adam状态）远超 LoRA
+    （~27-45GB），需要至少 2-4 张 80/96GB 卡 + DeepSpeed ZeRO-2/3，不是单卡能扛的。
+
 ### 补充：断电/终端异常关闭的连续性要求 (2026-07-19)
 
 用户明确要求：数据拷贝耗时较长的过程中，如果电脑死机/断电导致 PowerShell 终端异常关闭，必须保证详细记录了前因后果和所有关键内容，使得随时打开一个新窗口唤起 Claude 助手，都能很丝滑地迅速切入项目的开发工作。落地方式：

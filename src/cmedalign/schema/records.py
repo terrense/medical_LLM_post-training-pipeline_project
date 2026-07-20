@@ -13,6 +13,33 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field, model_validator
 
 
+class SFTMethodRow(BaseModel):
+    """One row of tables/table_sft_method.csv (added 2026-07-20, per user's decision to
+    run LoRA and full-parameter SFT on identical data/seed and carry the stronger one
+    forward). Exactly one row across the two must have is_winner=True -- enforced below,
+    not left as an unchecked convention."""
+
+    method: Literal["lora", "full_parameter"]
+    learning_rate: Optional[float] = None
+    effective_batch_size: Optional[int] = None
+    gpu_count: Optional[int] = None
+    parallelism: Optional[str] = None  # e.g. "none", "zero2", "zero3"
+    peak_gpu_memory_gb: Optional[float] = None
+    wall_clock_gpu_hours: Optional[float] = None
+    dev_composite_score: Optional[float] = None
+    is_winner: bool = False
+    checkpoint_size_gb: Optional[float] = None
+
+
+def require_exactly_one_winner(rows: list[SFTMethodRow]) -> None:
+    winners = [r for r in rows if r.is_winner]
+    if len(winners) != 1:
+        raise ValueError(
+            f"table_sft_method rows must have exactly one is_winner=True row, found {len(winners)} "
+            f"-- selection must be decided from dev_composite_score, never left ambiguous"
+        )
+
+
 class StatisticsEntry(BaseModel):
     """Exact schema from RESULTS_AND_TABLE_SCHEMA.md's "Statistical output contract".
     The paper's own build script "fails when n_cases, estimate, intervals, corrected

@@ -39,6 +39,7 @@ HUMAN_EVAL_FILES = [
 TABLE_FILES = [
     "table_data_registry.csv",
     "table_hyperparameters.csv",
+    "table_sft_method.csv",
     "table_models.csv",
     "table_initialization_probe.csv",
     "table_main_universal.csv",

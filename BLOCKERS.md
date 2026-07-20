@@ -5,20 +5,18 @@ Nothing is silently worked around. Empty section = nothing currently blocked.
 
 ## Open
 
-1. **MedDG、IMCS-21 已下载但许可证不明确，隔离在 `data/quarantine/{meddg,imcs21}/`，
-   未进入 `data/raw/`。** MedDG（GitHub `lwgkzl/MedDG`，实际数据托管在 Google Drive）
-   和 IMCS-21（GitHub `lemuria-wchen/imcs21`）在 GitHub 上都没有 LICENSE
-   文件，只有论文引用要求；IMCS-21 还挂在 CBLUE@Tianchi 比赛平台下，可能有平台自己的
-   使用条款（没去查）。跟 `med_zh_real` 不同，**这两个我还没有你的使用授权**，按规则
-   先隔离。需要你决定：这两个能不能按"学术研究引用即可使用"处理，还是要我先去确认
-   Tianchi 平台条款/联系 MedDG 作者？
-2. **CliMedBench 完整数据集拿不到。** GitHub 仓库本身是 MIT 协议，但里面只有任务说明
-   PDF，不是真正的 33,735 题数据集；README 说明确说"有问题请开 issue 或邮件联系作者"，
-   暗示数据不是公开直接下载的，可能需要联系作者申请。**这个我没法绕过去搞到**，需要你
-   决定：要不要联系作者要数据，还是这块先按论文自己允许的"降级方案"处理（论文原文
-   允许：拿不到完整数据可以先跑能拿到的子集，报告里说明清楚）。
+（当前无阻塞——下方两项均已由用户 2026-07-20 决定解除。）
 
 ## Reminders（不是阻塞，是别忘了要跟进的事）
+
+2. **CliMedBench 完整数据集（33,735题）确认拿不到，按用户指示不再纠结，直接按降级
+   方案走。** 2026-07-20：用户说"数据集能用就行关键是质量要高，别的你别去纠结了"——
+   决定：不联系作者、不再花时间找替代下载渠道。执行方式：按 `main.tex` 自己允许的
+   "拿不到完整数据集就报告能拿到的子集"处理；如果最终真的一条 CliMedBench 数据都拿
+   不到，这一项评测在论文里如实标 `pending`，不编数字、不强行凑。
+3. **MedDG/IMCS-21 已解禁**（见下方 Resolved）——授权理由是"学术引用够了，别纠结许可证
+   细节"，不是重新审查后认定许可证清晰，写论文引用这两个数据集时要如实说明许可状态
+   （沿用它们各自论文的引用要求），不要写成"已确认开源许可"这种不准确的表述。
 
 1. **`med_zh_real` 的确切来源还没定，用户已授权先用，等确认后要回来补全溯源。**
    2026-07-19：用户说这是"某开源数据集"，一时记不清具体名字，会在 1-2 天内去另一台
@@ -37,6 +35,10 @@ Nothing is silently worked around. Empty section = nothing currently blocked.
 
 ## Resolved
 
+- **2026-07-20 — MedDG、IMCS-21 解禁。** 用户："数据集能用就行关键是质量要高，别的你
+  别去纠结了"——授权按"学术引用即可使用"处理，不再等 Tianchi 平台条款/MedDG 作者
+  回复。已从 `data/quarantine/` 移到 `data/raw/{meddg,imcs21}/`，license_ledger 标记
+  `unknown_but_authorized`（跟 `med_zh_real` 同样的处理方式）。
 - **2026-07-19（最新）— `internal_seed_flywheel`/`derived_from_seed` 隐私问题已解决。**
   用户澄清：这两个数据源是完全虚构合成的（DeepSeek-V4-Pro 扮演患者、本项目基座模型
   Qwen3-8B 扮演医生作答，再由更强模型+真实医护人员修订），不是真实病历，不存在任何
