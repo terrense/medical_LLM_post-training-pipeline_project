@@ -247,27 +247,44 @@ Do these in order; each is a real gate, don't skip ahead if one fails.
 
 ## Phase 2 — Data (G1)
 
-- [ ] Import the reusable, already-cleaned/deduped/task_type-tagged records from
-      `E:\rlhf_lab_cloud_kit\data\eval_sets\05_final_v11\train.jsonl` (146,809 records)
-      into `data/raw/` — per `spec/design.md`, exclude `internal_seed_flywheel` and
-      `derived_from_seed` until the PII blocker there is resolved; the remaining
-      open-source-tagged sources (`Huatuo26M-Lite`, `DISC-Med-SFT`,
-      `Chinese-medical-dialogue`, `shibing624-finetune-zh`, `med_zh_real`) can be
-      imported now
-- [ ] Still need, on top of the above: CMtMedQA train/test official split, MedDG,
-      IMCS-21 (all named explicitly in `main.tex`'s data table but not present in the
-      rlhf_lab_cloud_kit pool) — download/identify these separately
-- [ ] Download eval benchmarks: CMB-Exam, CMB-Clin, CMtMedQA_test, CliMedBench; attempt
-      MedBench submission or save conformant pending submission
+- [x] Imported the reusable rlhf_lab_cloud_kit pool into `data/raw/rlhf_lab_cloud_kit/`
+      (all 8 sources including `med_zh_real`, now user-authorized — see `BLOCKERS.md`).
+- [x] **Done 2026-07-20** — downloaded/located the datasets `main.tex`'s data table
+      names that weren't in the rlhf_lab_cloud_kit pool:
+      - **CMtMedQA** train (MIT, 68,023) + held-out test (apache-2.0, exactly 1,000 —
+        matches Table 1) — `data/raw/cmtmedqa/`, `data/raw/cmtmedqa_test_HELD_OUT/`.
+      - **CMB-Exam test** (apache-2.0, exactly 11,200, no answer field — confirmed blind
+        test) + **CMB-Clin** (apache-2.0, exactly 74) — both match Table 1 exactly —
+        `data/raw/cmb_exam_test_HELD_OUT/`, `data/raw/cmb_clin_HELD_OUT/`.
+      - **MedDG** (train/dev/test, real dialogue+entity-annotated format confirmed) and
+        **IMCS-21** (2,472 train records, real structured pediatric dialogue format
+        confirmed) — downloaded, but **no LICENSE file found for either on GitHub, no
+        explicit usage terms beyond an academic citation request** — quarantined to
+        `data/quarantine/{meddg,imcs21}/`, NOT in `data/raw/`, see `BLOCKERS.md` open
+        item 1 (need user's call: treat as citation-sufficient, or chase down real terms).
+      - **CliMedBench: the actual 33,735-question dataset could not be obtained.** Its
+        GitHub repo (MIT-licensed) only contains PDF task-description examples, not the
+        real dataset — the README implies the real data requires contacting the authors
+        directly. See `BLOCKERS.md` open item 2 — needs the user's decision (reach out
+        to authors, or proceed with main.tex's own allowed fallback of a partial/
+        available subset with clear disclosure).
+      - **MedBench**: confirmed the official service (medbench.opencompass.org.cn) is
+        reachable (HTTP 200). It's submission-only (no downloadable dataset by design,
+        matches main.tex's own description) — actual submission workflow/registration
+        deferred to when `eval-baselines` is actually run, not needed now.
 - [ ] Re-run `src/cmedalign/data/dedup.py`'s embedding-similarity gate (the one
       near-dup check rlhf_lab_cloud_kit never implemented) against the imported pool,
       not just exact+MinHash
-- [ ] Download eval benchmarks: CMB-Exam, CMB-Clin, CMtMedQA_test, CliMedBench; attempt
-      MedBench submission or save conformant pending submission
-- [ ] Populate `data/manifests/license_ledger.json` for every source (via
-      `src/cmedalign/data/license_ledger.py`) — anything unclear → `data/quarantine/`, never trained on
-- [ ] Run `make data-audit` (`src/cmedalign/data/audit.py`) — must PASS: no license
-      quarantine issues, no train/test contamination (exact + MinHash), no train/dev contamination
+- [x] Populated `data/manifests/license_ledger.json` for every source obtained so far
+      (via `src/cmedalign/data/license_ledger.py`) — `unclear` sources correctly sitting
+      in `data/quarantine/`, never in the trainable pool.
+- [ ] Re-run `make data-audit` (`src/cmedalign/data/audit.py`) against the now-larger
+      pool (CMtMedQA added since the last run) — must PASS: no license quarantine
+      issues, no train/test contamination (exact + MinHash), no train/dev contamination.
+      The last real run (2026-07-19, before CMtMedQA/CMB were added) found 732 real
+      train<->dev near-duplicates from `derived_from_seed` — that's still unfixed and
+      will still show up; re-running now mainly adds CMtMedQA/CMB into the contamination
+      check surface, doesn't fix the known issue.
 - [ ] **G1 gate: PASS/FAIL recorded in `STATUS.md`**
 
 ## Phase 3 — G2/G3 diagnostics before training
@@ -292,6 +309,24 @@ Do these in order; each is a real gate, don't skip ahead if one fails.
 - [ ] Save merged HF checkpoint + LoRA adapter to `checkpoints/m1_sft/`
 - [ ] Run core eval suite against M1 (same as M0)
 - [ ] **G5 gate for M1: PASS/FAIL recorded in `STATUS.md`**
+- [x] **Done 2026-07-20 (scaffold only)** — user wants a hands-on LoRA-vs-full-parameter
+      comparison ("既然花钱干，这一次就干个彻底"). Wrote `configs/sft/full_param.yaml`:
+      same data/seed/epochs/max_length as the LoRA run, only `full_parameter: true`
+      differs (one-variable-at-a-time, per this project's own rule). Documented the
+      real VRAM math in the config's own comments: full-parameter 8B fine-tuning
+      (bf16 weights+grads + fp32 master weights + fp32 Adam m/v) needs ~128GB before
+      even counting activations/batch — **does not fit on a single 80/96GB GPU**,
+      needs DeepSpeed ZeRO-2/3 across at least 2 (tight) or ideally 4 GPUs. This is a
+      real, different hardware requirement from the LoRA SFT/DPO phase (~27-45GB,
+      1 GPU) discussed earlier in STATUS.md — **don't reuse the "1 GPU is enough"
+      sizing advice for this specific run.** Scope: this comparison only needs to go
+      through the SFT evaluation layer to answer the user's actual question
+      (convergence speed, final scores, overfitting tendency, real measured VRAM,
+      wall-clock cost, checkpoint size, general-capability regression) — main.tex's own
+      text already says a full-parameter run doesn't have to continue through DPO/GRPO
+      to be reported, only the required LoRA chain does. Not yet decided: whether this
+      becomes a supplementary result in the paper itself (not yet edited into `main.tex`
+      this round, only user-facing planning so far) — ask/confirm before adding it there.
 
 ## Phase 5 — DPO (M2)
 

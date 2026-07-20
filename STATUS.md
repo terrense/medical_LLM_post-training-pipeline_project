@@ -341,3 +341,39 @@ Krippendorff's alpha 还没实现；`ratings_raw/`、`ratings_anonymized.csv`
 `protocol_deviations.md` 仍未写。
 训练/评测跑起来，构建函数已经就绪，等真实数据）；MedDG（找到在 GitHub 但没查到
 license）、IMCS-21（还没定位）仍未下载。
+
+### 2026-07-20（第二轮）— 真去下载了数据集 + 全量微调配置骨架
+
+用户说"你老是说但不去行动怎么行"，这次直接去下载：
+
+- **CMB-Exam test**（apache-2.0，11,200条，确认无答案字段=真正盲测）+ **CMB-Clin**
+  （apache-2.0，74条）—— 来自 `FreedomIntelligence/CMB`（HuggingFace），数量跟
+  `main.tex` Table 1 完全对上。存到 `data/raw/cmb_exam_test_HELD_OUT/`、
+  `data/raw/cmb_clin_HELD_OUT/`。
+- **MedDG**（真实对话+实体标注格式确认）：GitHub 仓库本身没有真数据（只有代码），
+  真数据在作者的 Google Drive，用 `gdown` 下载成功。**没有 LICENSE，只有论文引用要求**。
+- **IMCS-21**：找到真正的仓库是 `lemuria-wchen/imcs21`（不是那个 CBLUE 比赛任务仓库，
+  那个只有任务代码没有原始数据），`dataset/` 目录下直接下载到了 train/dev/test.json，
+  train 2,472条，结构化儿科问诊对话格式确认。**同样没有 LICENSE**。
+- MedDG、IMCS-21 都因为许可证不明确，隔离到 `data/quarantine/{meddg,imcs21}/`，
+  没有像 `med_zh_real` 那样得到你的使用授权，记入 `BLOCKERS.md`，等你决定。
+- **CliMedBench 拿不到完整数据集，如实报告，没有硬凑**：GitHub 仓库是 MIT 协议，但
+  里面只有任务说明 PDF，不是真正的 33,735 题数据，README 暗示需要联系作者要数据。
+  这个我绕不过去，记入 `BLOCKERS.md`，需要你决定要不要联系作者，或者按论文自己允许的
+  "拿不到全量就报告能拿到的子集"降级方案处理。
+- **MedBench**：确认官网(medbench.opencompass.org.cn)能访问，是提交制评测服务，不是
+  可下载数据集（这个跟论文本来的描述一致，不是新发现），提交流程留到真正跑 eval 时再办。
+
+**全量微调（LoRA vs 全量对比）骨架**：写了 `configs/sft/full_param.yaml`，跟 LoRA 版
+数据/seed/epoch/max_length 完全一致，只改 `full_parameter: true` 这一个变量。**关键
+发现，会改变之前的硬件建议**：全量微调 8B 模型显存需求(bf16权重+梯度 32GB + fp32
+master权重+Adam一二阶矩 96GB ≈ 128GB，还没算激活值)跟 LoRA 的 ~27-45GB 完全不是一个
+量级，**单张 80GB/96GB 卡装不下**，需要 DeepSpeed ZeRO-2/3 切分到至少 2 张（紧张）
+理想 4 张卡上。之前给的"1张卡够用"的建议**只适用于 LoRA 阶段**，全量微调是单独的、
+更大的硬件需求，别搞混了。范围上只需要跑到 SFT 评测这一层就能回答"LoRA vs 全量"的
+问题（main.tex 自己的文本也允许全量跑不完整条链路），不需要为了这个对比把 DPO/GRPO
+也跑两遍。**这次没有改论文正文**——这只是给你自己看的工程对比，要不要正式写进论文
+作为补充结果，还没定，等你说。
+
+**还没做的**（老实列）：MedDG/IMCS-21 的许可证授权决定、CliMedBench 数据获取方式、
+`make data-audit` 还没针对新导入的 CMtMedQA/CMB 重新跑一遍。

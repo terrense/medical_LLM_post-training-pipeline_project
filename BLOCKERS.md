@@ -5,7 +5,18 @@ Nothing is silently worked around. Empty section = nothing currently blocked.
 
 ## Open
 
-（当前无阻塞——下方第 1 项已由用户临时授权解除，等待后续补充确切来源。）
+1. **MedDG、IMCS-21 已下载但许可证不明确，隔离在 `data/quarantine/{meddg,imcs21}/`，
+   未进入 `data/raw/`。** MedDG（GitHub `lwgkzl/MedDG`，实际数据托管在 Google Drive）
+   和 IMCS-21（GitHub `lemuria-wchen/imcs21`）在 GitHub 上都没有 LICENSE
+   文件，只有论文引用要求；IMCS-21 还挂在 CBLUE@Tianchi 比赛平台下，可能有平台自己的
+   使用条款（没去查）。跟 `med_zh_real` 不同，**这两个我还没有你的使用授权**，按规则
+   先隔离。需要你决定：这两个能不能按"学术研究引用即可使用"处理，还是要我先去确认
+   Tianchi 平台条款/联系 MedDG 作者？
+2. **CliMedBench 完整数据集拿不到。** GitHub 仓库本身是 MIT 协议，但里面只有任务说明
+   PDF，不是真正的 33,735 题数据集；README 说明确说"有问题请开 issue 或邮件联系作者"，
+   暗示数据不是公开直接下载的，可能需要联系作者申请。**这个我没法绕过去搞到**，需要你
+   决定：要不要联系作者要数据，还是这块先按论文自己允许的"降级方案"处理（论文原文
+   允许：拿不到完整数据可以先跑能拿到的子集，报告里说明清楚）。
 
 ## Reminders（不是阻塞，是别忘了要跟进的事）
 

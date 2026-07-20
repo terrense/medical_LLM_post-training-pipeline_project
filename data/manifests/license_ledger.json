@@ -98,5 +98,55 @@
     "retrieved_at": "2026-07-19T15:00:36.680146+00:00",
     "raw_file_sha256": "see_per-file",
     "notes": "HELD-OUT TEST SET (1000 records, matches main.tex Table 1 count exactly). NEVER use in SFT/DPO/GRPO/reward construction. Stored in data/raw/cmtmedqa_test_HELD_OUT/ to make this obvious."
+  },
+  "CMB-Exam_test@FreedomIntelligence/CMB": {
+    "source": "CMB-Exam_test",
+    "revision": "FreedomIntelligence/CMB",
+    "license_id": "apache-2.0",
+    "license_status": "cleared",
+    "url": "https://huggingface.co/datasets/FreedomIntelligence/CMB",
+    "retrieved_at": "2026-07-20T00:03:14.221895+00:00",
+    "raw_file_sha256": "see_file",
+    "notes": "HELD-OUT eval only, 11200 items, no answer field present (blind test) -- matches main.tex Table 1 exactly. Never use in training."
+  },
+  "CMB-Clin@FreedomIntelligence/CMB": {
+    "source": "CMB-Clin",
+    "revision": "FreedomIntelligence/CMB",
+    "license_id": "apache-2.0",
+    "license_status": "cleared",
+    "url": "https://huggingface.co/datasets/FreedomIntelligence/CMB",
+    "retrieved_at": "2026-07-20T00:03:14.221895+00:00",
+    "raw_file_sha256": "see_file",
+    "notes": "HELD-OUT eval only, 74 complex clinical cases -- matches main.tex Table 1 exactly. Never use in training."
+  },
+  "MedDG@lwgkzl/MedDG (Google Drive hosted)": {
+    "source": "MedDG",
+    "revision": "lwgkzl/MedDG (Google Drive hosted)",
+    "license_id": "unknown",
+    "license_status": "unclear",
+    "url": "https://github.com/lwgkzl/MedDG",
+    "retrieved_at": "2026-07-20T00:03:14.221895+00:00",
+    "raw_file_sha256": "see_file",
+    "notes": "No LICENSE file, no explicit terms beyond an academic citation request in the README. Downloaded to data/quarantine/meddg/ for provenance recording -- NOT cleared for training until license clarified."
+  },
+  "IMCS-21@lemuria-wchen/imcs21": {
+    "source": "IMCS-21",
+    "revision": "lemuria-wchen/imcs21",
+    "license_id": "unknown",
+    "license_status": "unclear",
+    "url": "https://github.com/lemuria-wchen/imcs21",
+    "retrieved_at": "2026-07-20T00:03:14.221895+00:00",
+    "raw_file_sha256": "see_file",
+    "notes": "No LICENSE file on GitHub, tied to CBLUE@Tianchi competition platform (may have its own terms of use not visible in the repo). Downloaded to data/quarantine/imcs21/ for provenance recording -- NOT cleared for training until license clarified."
+  },
+  "CliMedBench@Optifine-TAT/CliMedBench": {
+    "source": "CliMedBench",
+    "revision": "Optifine-TAT/CliMedBench",
+    "license_id": "MIT (repo only)",
+    "license_status": "unclear",
+    "url": "https://github.com/Optifine-TAT/CliMedBench",
+    "retrieved_at": "2026-07-20T00:03:14.221895+00:00",
+    "raw_file_sha256": "n/a",
+    "notes": "Repo itself is MIT-licensed but only contains PDFs of task descriptions/examples, NOT the actual 33,735-question dataset. Full dataset not found publicly downloadable -- likely requires contacting the authors directly (README says to post a GitHub issue or email). NOT DOWNLOADED. This blocks CliMedBench evaluation until the real dataset is obtained."
   }
 }

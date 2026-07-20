@@ -1,0 +1,68 @@
+# 全量微调(full-parameter fine-tuning)对照实验配置。
+#
+# main.tex 自己的原文已经预留了这个选项: "A full-parameter run is optional and cannot
+# replace the required LoRA result unless it completes all later stages and evaluations
+# under the same protocol." —— 也就是说: LoRA 结果是必须交付的主线, 全量微调是"如果做,
+# 就要跟 LoRA 一样走完 SFT 评测这一层"，不强制要求它继续走完 DPO/GRPO 全链路才算数
+# (用户的目的是"亲自感受LoRA vs 全量在各个维度的优缺点", 这在 SFT 这一层就能对比出来:
+# 医学知识/指令遵循/收敛速度/过拟合倾向/显存代价/训练时间/checkpoint体积, 不需要为了
+# 对比 LoRA vs 全量本身把整条 SFT->DPO->GRPO 链路跑两遍)。
+#
+# ============================================================================
+# 关键: 全量微调的显存需求跟 LoRA 完全不是一个量级, 决定了这个实验需要几张卡。
+# ============================================================================
+# LoRA SFT(rlhf_lab_cloud_kit 实测过): 单卡 ~27GB —— 1张 80/96GB 卡随便跑。
+# 全量微调 8B 模型(混合精度 Adam), 按标准显存公式估算(不含 activation/batch):
+#   bf16 权重:        8B x 2B  = 16GB
+#   bf16 梯度:        8B x 2B  = 16GB
+#   fp32 权重:        8B x 4B  = 32GB   \
+#   fp32 一阶矩(m):    8B x 4B  = 32GB    > Adam optimizer states + fp32 master weights
+#   fp32 二阶矩(v):    8B x 4B  = 32GB   /
+#   ------------------------------------
+#   小计(不含激活值):                    ~128GB
+# 这还没算 batch/序列长度带来的激活值显存(gradient checkpointing 能big大幅降低但不是0)。
+# 结论: 全量微调 8B **单张 80GB/96GB 卡装不下**, 必须用 DeepSpeed ZeRO stage 2/3 把
+# optimizer states/梯度/参数切分到多张卡上, 或者上 CPU/NVMe offload(会慢很多)。
+# 现实建议: 至少 2 张 80GB+ 卡起步(用 ZeRO-2, 比较紧张), 4 张卡更从容
+# (每卡负担降到 ~35-40GB, 还有余量留给激活值和 batch)。
+# 这跟 LoRA 阶段"1张卡就够"的结论完全不同, 之前给的单卡建议只适用于 LoRA 那一version。
+# ============================================================================
+
+model:
+  model_name_or_path: Qwen/Qwen3-8B
+data:
+  dataset: data/normalized/sft_train.jsonl  # 跟 LoRA 版用完全相同的数据/切分/seed, 只改这一个变量
+  dataset_split: train
+  eval_dataset: data/normalized/sft_dev.jsonl
+train:
+  full_parameter: true  # 不加载/训练 LoRA adapter, 训练全部权重
+  micro_batch_size: TBD  # 预计比 LoRA 版小很多, 显存吃紧
+  batch_size: 128  # 跟 LoRA 版保持一致, 通过调整 gradient_accumulation 凑出来
+  max_epochs: 2  # 跟 LoRA 版一致 -- 唯一改变的变量是 full_parameter, 不是别的
+  seed: 42  # 跟 LoRA 版一致
+  max_length: 4096  # 跟 LoRA 版一致
+  gradient_checkpointing: true
+  precision: bf16
+  lr: TBD  # 全参和 LoRA 通常不共用同一个学习率量级(全参一般需要小得多的lr, 如1e-5~5e-6起),
+           # 需要单独做一次小规模 smoke sweep, 不能直接照抄 LoRA 选出来的 lr
+optim:
+  name: adam
+  betas: [0.9, 0.95]
+  weight_decay: 0.0
+  lr_scheduler: cosine_with_min_lr
+  lr_warmup_ratio: 0.03
+deepspeed:
+  zero_stage: TBD  # 2 或 3, 取决于实际显存/卡数, G0 阶段实测后再定
+  offload_optimizer: false  # 先不 offload, 显存实在不够再考虑, offload 会显著拖慢速度
+checkpoint:
+  save_hf: true
+  output_dir: checkpoints/m1_sft_full_param  # 独立目录, 不跟 LoRA 版的 M1 混在一起
+
+# 对比维度(用户原话"亲自亲眼感受二者的优缺点等各个维度对比"), 跑完后至少记录:
+#   - 收敛速度(相同 step 数下 train/dev loss 曲线)
+#   - 最终医学知识/指令遵循分数(用跟 LoRA 版完全相同的评测集和流程)
+#   - 是否过拟合(train loss 降得快但 dev loss 反弹 -- 全参更容易发生)
+#   - 显存占用实测值(不是这里的理论估算, 要记录 G0/训练时的真实峰值)
+#   - 训练总时长(wall-clock, 换算成 GPU-hours 方便跟 LoRA 版比较成本)
+#   - checkpoint 体积(全参 merged ~16GB vs LoRA adapter ~几百MB, 存储/传输成本差异巨大)
+#   - 通用能力回归(是否比 LoRA 更容易发生灾难性遗忘)
